@@ -66,7 +66,7 @@ const TypingAnimation = ({
   return (
     <div className="typing-container">
       <p 
-        className={`typing-text font-bold ${className}`}
+        className={`typing-text font-['Lilita_One'] ${className}`}
         style={{
           borderRightColor: isTypingComplete ? '#DAA520' : 'transparent',
           borderRightStyle: 'solid',
