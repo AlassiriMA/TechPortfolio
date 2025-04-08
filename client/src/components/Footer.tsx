@@ -9,7 +9,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [location] = useLocation();
   const isHomePage = location === "/";
-  
+
   return (
     <footer className="bg-darkgray text-gray-800 py-14">
       <div className="container mx-auto px-6">
@@ -27,7 +27,7 @@ const Footer = () => {
                   alt="Robot Icon" 
                   className="w-8 h-8 mr-2"
                 />
-                ma<span className="text-glossy-silver">@</span>alassiri
+                me<span className="text-glossy-silver">@</span>alassiri.nl
               </a>
             ) : (
               <Link 
@@ -40,7 +40,7 @@ const Footer = () => {
                   alt="Robot Icon" 
                   className="w-8 h-8 mr-2"
                 />
-                ma<span className="text-glossy-silver">@</span>alassiri
+                me<span className="text-glossy-silver">@</span>alassiri.nl
               </Link>
             )}
             <p className="text-gray-800 mt-4 text-sm">
@@ -75,7 +75,7 @@ const Footer = () => {
                 <i className="ri-discord-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
               </a>
             </div>
-            
+
             <div className="mt-8">
               <a 
                 href="/MohammadAlassiri-CV.pdf" 
@@ -88,7 +88,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div className="md:col-span-1">
             <h3 className="font-montserrat font-semibold text-glossy-gold text-lg mb-4">Quick Links</h3>
@@ -109,20 +109,24 @@ const Footer = () => {
               <li><a href="#" className="hover:text-glossy-gold transition-colors duration-300">Blog</a></li>
               <li><a href="/MohammadAlassiri-CV.pdf" target="_blank" className="hover:text-glossy-gold transition-colors duration-300" download>Download CV</a></li>
             </ul>
-            
+
             <h3 className="font-montserrat font-semibold text-glossy-gold text-lg mt-8 mb-4">Contact Info</h3>
             <ul className="space-y-3 text-gray-800">
               <li className="flex items-start">
                 <i className="ri-map-pin-fill text-glossy-gold mr-3 mt-1"></i>
-                <span>Riyadh, Saudi Arabia</span>
+                <span>Amsterdam, The Netherlands</span>
               </li>
               <li className="flex items-center">
                 <i className="ri-mail-fill text-glossy-gold mr-3"></i>
-                <a href="mailto:contact@mohammadalassiri.com" className="hover:text-glossy-gold transition-colors duration-300">contact@mohammadalassiri.com</a>
+                <a href="mailto:me@alassiri.nl" className="hover:text-glossy-gold transition-colors duration-300">me@alassiri.nl</a>
+              </li>
+              <li className="flex items-center">
+                <i className="ri-phone-fill text-glossy-gold mr-3"></i>
+                <a href="tel:+31610979730" className="hover:text-glossy-gold transition-colors duration-300">+316 1097 9730</a>
               </li>
             </ul>
           </div>
-          
+
           {/* Technologies */}
           <div className="md:col-span-1">
             <h3 className="font-montserrat font-semibold text-glossy-gold text-lg mb-4">Technologies</h3>
@@ -140,9 +144,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <hr className="border-gray-700 my-8" />
-        
+
         <div className="flex flex-col md:flex-row justify-between items-center text-gray-800">
           <p>© {currentYear} Mohammad A Alassiri. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex flex-wrap justify-center gap-4">

@@ -36,7 +36,7 @@ const Header = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
-    
+
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -73,7 +73,7 @@ const Header = () => {
                 alt="Robot Icon" 
                 className="w-7 h-7 mr-2"
               />
-              ma<span className="text-glossy-silver">@</span>alassiri
+              me<span className="text-glossy-silver">@</span>alassiri.nl
             </a>
           ) : (
             <Link 
@@ -86,10 +86,10 @@ const Header = () => {
                 alt="Robot Icon" 
                 className="w-7 h-7 mr-2"
               />
-              ma<span className="text-glossy-silver">@</span>alassiri
+              me<span className="text-glossy-silver">@</span>alassiri.nl
             </Link>
           )}
-          
+
           {/* Mobile menu button */}
           <div className="block md:hidden">
             <button 
@@ -101,7 +101,7 @@ const Header = () => {
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {isHomePage ? (
@@ -127,7 +127,7 @@ const Header = () => {
           </div>
         </nav>
       </div>
-      
+
       {/* Mobile Navigation */}
       <div 
         className={`fixed inset-0 bg-white z-40 transition-transform duration-300 transform ${
@@ -197,7 +197,7 @@ const Header = () => {
               </a>
             </div>
           </div>
-          
+
           <div className="mt-12 flex justify-center space-x-6">
             <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <i className="ri-github-fill text-2xl text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300"></i>

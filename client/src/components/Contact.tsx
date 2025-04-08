@@ -173,15 +173,31 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold">Email</h4>
                     <a 
-                      href="mailto:contact@mohammadalassiri.com" 
+                      href="mailto:me@alassiri.nl" 
                       className="text-mediumgray hover:text-gold transition-colors"
-                      aria-label="Email contact@mohammadalassiri.com"
+                      aria-label="Email me@alassiri.nl"
                     >
-                      contact@mohammadalassiri.com
+                      me@alassiri.nl
                     </a>
                   </div>
                 </div>
-                
+
+                <div className="flex items-start">
+                  <div className="text-gold mr-4 mt-1">
+                    <i className="ri-phone-fill"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Phone</h4>
+                    <a 
+                      href="tel:+31610979730" 
+                      className="text-mediumgray hover:text-gold transition-colors"
+                      aria-label="Call +316 1097 9730"
+                    >
+                      +316 1097 9730
+                    </a>
+                  </div>
+                </div>
+
                 <div className="flex items-start">
                   <div className="text-gold mr-4 mt-1">
                     <MapPin className="h-5 w-5" />
