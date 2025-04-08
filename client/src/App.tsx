@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Route, Switch } from "wouter";
+import { useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
@@ -33,6 +34,46 @@ const HomePage = () => {
  * @returns The complete portfolio website with routing
  */
 function App() {
+  // Add JSON-LD structured data for the homepage
+  useEffect(() => {
+    // Create JSON-LD schema for the homepage
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfilePage',
+      'mainEntity': {
+        '@type': 'Person',
+        'name': 'Mohammad A Alassiri',
+        'url': 'https://mohammadalassiri.com',
+        'sameAs': [
+          'https://linkedin.com/in/mohammadalassiri',
+          'https://github.com/mohammadalassiri',
+          'https://twitter.com/mohammadalassiri'
+        ],
+        'jobTitle': 'Technology & AI Expert',
+        'worksFor': {
+          '@type': 'Organization',
+          'name': 'Independent Consultant'
+        },
+        'knowsAbout': [
+          'Artificial Intelligence',
+          'Machine Learning',
+          'Software Development',
+          'Full-stack Development',
+          'Project Management'
+        ]
+      }
+    });
+    
+    document.head.appendChild(script);
+    
+    // Clean up on unmount
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <>
       <Switch>

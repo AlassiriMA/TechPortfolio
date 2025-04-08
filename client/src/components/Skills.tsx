@@ -11,7 +11,7 @@ const Skills = () => {
     <section id="skills" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-4">Technical <span className="text-glossy-gold">Skills</span></h2>
+          <h2 className="font-montserrat font-bold text-3xl md:text-4xl mb-4" id="skills-heading" aria-label="Technical Skills Section">Technical <span className="text-glossy-gold">Skills</span></h2>
           <p className="text-glossy-darkgray max-w-2xl mx-auto">
             A comprehensive collection of technologies and tools I've mastered throughout my career.
           </p>

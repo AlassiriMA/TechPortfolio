@@ -48,7 +48,11 @@ const TechIcon = ({ name, icon, color, url }: TechIconProps) => {
   }
 
   return (
-    <div className="text-center p-2 hover:scale-105 transition-transform duration-300">
+    <div 
+      className="text-center p-2 hover:scale-105 transition-transform duration-300"
+      role="img"
+      aria-label={`${name} technology`}
+    >
       <IconContent />
     </div>
   );

@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure focus styles are visible for accessibility */
+:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -1,0 +1,21 @@
+{
+  "name": "Mohammad A Alassiri - Professional Portfolio",
+  "short_name": "MA Portfolio",
+  "description": "Mohammad A Alassiri's professional portfolio showcasing innovative technology projects and expertise in AI solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#DAA520",
+  "icons": [
+    {
+      "src": "/icons/robot-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/robot-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

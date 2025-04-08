@@ -276,6 +276,9 @@ const ProjectDetail = () => {
                             alt={screenshot.alt} 
                             className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                             loading="lazy"
+                            decoding="async"
+                            width="1200"
+                            height="800"
                           />
                           <div className="absolute inset-0 bg-glossy-darkgray bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                             <span className="bg-glossy-gold text-white px-4 py-2 rounded-md shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-2">
