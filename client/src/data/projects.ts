@@ -7,8 +7,8 @@ export const projectsData: ProjectData[] = [
   {
     title: "E-commerce Platform",
     description: "A full-featured online store with product management, cart functionality, and secure payment processing.",
-    imgSrc: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    imgAlt: "E-commerce Platform",
+    imgSrc: "/project-placeholder.jpg",
+    imgAlt: "Project thumbnail",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
     demoLink: "#",
     githubLink: "#"
@@ -16,8 +16,8 @@ export const projectsData: ProjectData[] = [
   {
     title: "Task Management App",
     description: "A productive task management application with drag-and-drop interface, reminders, and team collaboration features.",
-    imgSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    imgAlt: "Task Management App",
+    imgSrc: "/project-placeholder.jpg",
+    imgAlt: "Project thumbnail",
     technologies: ["Vue.js", "Firebase", "Vuex", "PWA"],
     demoLink: "#",
     githubLink: "#"
@@ -25,8 +25,8 @@ export const projectsData: ProjectData[] = [
   {
     title: "Weather Forecast App",
     description: "A weather application providing real-time forecasts, radar maps, and detailed meteorological data for any location.",
-    imgSrc: "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    imgAlt: "Weather Forecast App",
+    imgSrc: "/project-placeholder.jpg",
+    imgAlt: "Project thumbnail",
     technologies: ["React Native", "Redux", "Weather API", "Geolocation"],
     demoLink: "#",
     githubLink: "#"
