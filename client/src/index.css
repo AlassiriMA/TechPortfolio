@@ -135,7 +135,11 @@ html {
   .hover\:border-glossy-gold:hover {
     border-color: #DAA520;
   }
-
+  
+  .transform-opacity {
+    transition: opacity 1s ease;
+  }
+  
   .typing-container {
     display: inline-block;
   }
@@ -156,12 +160,12 @@ html {
   
   .scrolling-wrapper {
     display: inline-block;
-    animation: scroll 40s linear infinite;
+    animation: scroll 60s linear infinite;
   }
   
   .scrolling-wrapper-reverse {
     display: inline-block;
-    animation: scroll-reverse 40s linear infinite;
+    animation: scroll-reverse 60s linear infinite;
   }
   
   @keyframes scroll {

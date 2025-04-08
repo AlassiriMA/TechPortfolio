@@ -24,7 +24,7 @@ const Skills = () => {
         <div className="scroll-container mb-12" aria-label="Development technologies scrolling display">
           <div className="scrolling-wrapper">
             {/* First set of icons */}
-            <div className="inline-flex space-x-12 items-center py-4">
+            <div className="inline-flex space-x-16 items-center py-6">
               {techSkills.map((skill, index) => (
                 <TechIcon 
                   key={index} 
@@ -32,11 +32,13 @@ const Skills = () => {
                   icon={skill.icon} 
                   color={skill.color} 
                   url={skill.url}
+                  description={skill.description}
+                  proficiency={skill.proficiency}
                 />
               ))}
             </div>
             {/* Duplicate for continuous scrolling */}
-            <div className="inline-flex space-x-12 items-center py-4">
+            <div className="inline-flex space-x-16 items-center py-6">
               {techSkills.map((skill, index) => (
                 <TechIcon 
                   key={`dup-${index}`} 
@@ -44,6 +46,8 @@ const Skills = () => {
                   icon={skill.icon} 
                   color={skill.color} 
                   url={skill.url}
+                  description={skill.description}
+                  proficiency={skill.proficiency}
                 />
               ))}
             </div>
@@ -57,7 +61,7 @@ const Skills = () => {
         <div className="scroll-container mb-12" aria-label="AI technologies scrolling display">
           <div className="scrolling-wrapper-reverse">
             {/* AI set of icons */}
-            <div className="inline-flex space-x-12 items-center py-4">
+            <div className="inline-flex space-x-16 items-center py-6">
               {aiSkills.map((skill, index) => (
                 <TechIcon 
                   key={index} 
@@ -65,11 +69,13 @@ const Skills = () => {
                   icon={skill.icon} 
                   color={skill.color} 
                   url={skill.url}
+                  description={skill.description}
+                  proficiency={skill.proficiency}
                 />
               ))}
             </div>
             {/* Duplicate for continuous scrolling */}
-            <div className="inline-flex space-x-12 items-center py-4">
+            <div className="inline-flex space-x-16 items-center py-6">
               {aiSkills.map((skill, index) => (
                 <TechIcon 
                   key={`dup-${index}`} 
@@ -77,6 +83,8 @@ const Skills = () => {
                   icon={skill.icon} 
                   color={skill.color} 
                   url={skill.url}
+                  description={skill.description}
+                  proficiency={skill.proficiency}
                 />
               ))}
             </div>
@@ -90,7 +98,7 @@ const Skills = () => {
         <div className="scroll-container" aria-label="System skills scrolling display">
           <div className="scrolling-wrapper">
             {/* System set of icons */}
-            <div className="inline-flex space-x-12 items-center py-4">
+            <div className="inline-flex space-x-16 items-center py-6">
               {systemSkills.map((skill, index) => (
                 <TechIcon 
                   key={index} 
@@ -98,11 +106,13 @@ const Skills = () => {
                   icon={skill.icon} 
                   color={skill.color} 
                   url={skill.url}
+                  description={skill.description}
+                  proficiency={skill.proficiency}
                 />
               ))}
             </div>
             {/* Duplicate for continuous scrolling */}
-            <div className="inline-flex space-x-12 items-center py-4">
+            <div className="inline-flex space-x-16 items-center py-6">
               {systemSkills.map((skill, index) => (
                 <TechIcon 
                   key={`dup-${index}`} 
@@ -110,6 +120,8 @@ const Skills = () => {
                   icon={skill.icon} 
                   color={skill.color} 
                   url={skill.url}
+                  description={skill.description}
+                  proficiency={skill.proficiency}
                 />
               ))}
             </div>

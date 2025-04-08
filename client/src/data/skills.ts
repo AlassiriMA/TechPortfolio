@@ -6,18 +6,62 @@ interface SkillData {
   icon: string;
   color: string;
   url?: string;
+  description?: string;
+  proficiency?: number;
 }
 
 /**
  * Technology skills data for the scrolling skills section
  */
 export const techSkills: SkillData[] = [
-  { name: "HTML5", icon: "ri-html5-fill", color: "#E44D26", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
-  { name: "CSS3", icon: "ri-css3-fill", color: "#264DE4", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-  { name: "JavaScript", icon: "ri-javascript-fill", color: "#F7DF1E", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-  { name: "TypeScript", icon: "ri-code-s-slash-fill", color: "#007ACC", url: "https://www.typescriptlang.org/" },
-  { name: "React", icon: "ri-reactjs-line", color: "#61DAFB", url: "https://reactjs.org/" },
-  { name: "Vue.js", icon: "ri-vuejs-fill", color: "#4FC08D", url: "https://vuejs.org/" },
+  { 
+    name: "HTML5", 
+    icon: "ri-html5-fill", 
+    color: "#E44D26", 
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    description: "Expert in semantic markup and accessibility standards",
+    proficiency: 95
+  },
+  { 
+    name: "CSS3", 
+    icon: "ri-css3-fill", 
+    color: "#264DE4", 
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    description: "Advanced styling including animations and responsive design",
+    proficiency: 92
+  },
+  { 
+    name: "JavaScript", 
+    icon: "ri-javascript-fill", 
+    color: "#F7DF1E", 
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    description: "Expert in ES6+ features and asynchronous patterns",
+    proficiency: 94
+  },
+  { 
+    name: "TypeScript", 
+    icon: "ri-code-s-slash-fill", 
+    color: "#007ACC", 
+    url: "https://www.typescriptlang.org/",
+    description: "Type-safe development across complex projects",
+    proficiency: 90
+  },
+  { 
+    name: "React", 
+    icon: "ri-reactjs-line", 
+    color: "#61DAFB", 
+    url: "https://reactjs.org/",
+    description: "Advanced state management and custom hooks",
+    proficiency: 96
+  },
+  { 
+    name: "Vue.js", 
+    icon: "ri-vuejs-fill", 
+    color: "#4FC08D", 
+    url: "https://vuejs.org/",
+    description: "Component composition and Vuex state management",
+    proficiency: 85
+  },
   { name: "Angular", icon: "ri-angularjs-fill", color: "#DD0031", url: "https://angular.io/" },
   { name: "Node.js", icon: "ri-nodejs-fill", color: "#68A063", url: "https://nodejs.org/" },
   { name: "Python", icon: "ri-python-fill", color: "#3776AB", url: "https://www.python.org/" },
@@ -40,11 +84,46 @@ export const techSkills: SkillData[] = [
  * AI and agent technologies data
  */
 export const aiSkills: SkillData[] = [
-  { name: "OpenAI", icon: "ri-openai-fill", color: "#00A67E", url: "https://openai.com/" },
-  { name: "ChatGPT", icon: "ri-chat-3-fill", color: "#10A37F", url: "https://chat.openai.com/" },
-  { name: "GPT-4", icon: "ri-brain-fill", color: "#00A67E", url: "https://openai.com/gpt-4" },
-  { name: "DALL·E", icon: "ri-image-fill", color: "#FF6F61", url: "https://openai.com/dall-e-3" },
-  { name: "TensorFlow", icon: "ri-code-box-fill", color: "#FF6F00", url: "https://www.tensorflow.org/" },
+  { 
+    name: "OpenAI", 
+    icon: "ri-openai-fill", 
+    color: "#00A67E", 
+    url: "https://openai.com/",
+    description: "Building AI solutions using OpenAI's API and models",
+    proficiency: 92
+  },
+  { 
+    name: "ChatGPT", 
+    icon: "ri-chat-3-fill", 
+    color: "#10A37F", 
+    url: "https://chat.openai.com/",
+    description: "Expert prompt engineering and conversation design",
+    proficiency: 96
+  },
+  { 
+    name: "GPT-4", 
+    icon: "ri-brain-fill", 
+    color: "#00A67E", 
+    url: "https://openai.com/gpt-4",
+    description: "Advanced applications using GPT-4's capabilities",
+    proficiency: 94
+  },
+  { 
+    name: "DALL·E", 
+    icon: "ri-image-fill", 
+    color: "#FF6F61", 
+    url: "https://openai.com/dall-e-3",
+    description: "Creating detailed image concepts with precise prompts",
+    proficiency: 90
+  },
+  { 
+    name: "TensorFlow", 
+    icon: "ri-code-box-fill", 
+    color: "#FF6F00", 
+    url: "https://www.tensorflow.org/",
+    description: "Building and training custom ML models",
+    proficiency: 88
+  },
   { name: "PyTorch", icon: "ri-code-box-fill", color: "#EE4C2C", url: "https://pytorch.org/" },
   { name: "Hugging Face", icon: "ri-emotion-happy-fill", color: "#FFBD59", url: "https://huggingface.co/" },
   { name: "Midjourney", icon: "ri-palette-fill", color: "#5964F9", url: "https://www.midjourney.com/" },
@@ -62,10 +141,38 @@ export const aiSkills: SkillData[] = [
  * System and platform skills data for the scrolling skills section
  */
 export const systemSkills: SkillData[] = [
-  { name: "AWS", icon: "ri-aws-fill", color: "#FF9900", url: "https://aws.amazon.com/" },
-  { name: "Google Cloud", icon: "ri-google-fill", color: "#4285F4", url: "https://cloud.google.com/" },
-  { name: "Firebase", icon: "ri-fire-fill", color: "#FFCA28", url: "https://firebase.google.com/" },
-  { name: "Azure", icon: "ri-microsoft-fill", color: "#0078D4", url: "https://azure.microsoft.com/" },
+  { 
+    name: "AWS", 
+    icon: "ri-aws-fill", 
+    color: "#FF9900", 
+    url: "https://aws.amazon.com/",
+    description: "EC2, S3, Lambda, and serverless infrastructure",
+    proficiency: 92
+  },
+  { 
+    name: "Google Cloud", 
+    icon: "ri-google-fill", 
+    color: "#4285F4", 
+    url: "https://cloud.google.com/",
+    description: "App Engine, Cloud Functions, and ML services",
+    proficiency: 88
+  },
+  { 
+    name: "Firebase", 
+    icon: "ri-fire-fill", 
+    color: "#FFCA28", 
+    url: "https://firebase.google.com/",
+    description: "Real-time databases and serverless workflows",
+    proficiency: 93
+  },
+  { 
+    name: "Azure", 
+    icon: "ri-microsoft-fill", 
+    color: "#0078D4", 
+    url: "https://azure.microsoft.com/",
+    description: "Azure Functions and cognitive services",
+    proficiency: 85
+  },
   { name: "Gatsby", icon: "ri-gatsby-fill", color: "#663399", url: "https://www.gatsbyjs.com/" },
   { name: "Android", icon: "ri-android-fill", color: "#3DDC84", url: "https://www.android.com/" },
   { name: "iOS", icon: "ri-apple-fill", color: "#999999", url: "https://developer.apple.com/ios/" },
