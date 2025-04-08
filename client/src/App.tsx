@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/not-found";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -79,6 +80,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Switch>
         <Route path="/" component={HomePage} />
         <Route path="/project/:id" component={ProjectDetail} />
