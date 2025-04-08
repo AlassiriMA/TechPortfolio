@@ -27,7 +27,7 @@ const Hero = () => {
                 loading="eager"
               />
             </div>
-            <h1 className="font-montserrat font-normal text-4xl md:text-5xl lg:text-6xl mb-6">
+            <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl mb-6">
               <span className="text-glossy-gold">mohammad a</span> <span className="text-glossy-silver">alassiri</span>
             </h1>
             <div className="mb-8 mx-auto">
