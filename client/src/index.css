@@ -29,6 +29,7 @@
     font-family: 'Poppins', sans-serif;
   }
 
+  /* Legacy colors */
   .text-gold {
     color: #FFD700;
   }
@@ -45,6 +46,22 @@
     color: #888888;
   }
 
+  /* New glossy colors */
+  .text-glossy-gold {
+    color: #DAA520;
+    text-shadow: 0 0 3px rgba(218, 165, 32, 0.5);
+  }
+
+  .text-glossy-silver {
+    color: #A0A0A0;
+    text-shadow: 0 0 3px rgba(160, 160, 160, 0.5);
+  }
+
+  .text-glossy-darkgray {
+    color: #444444;
+    text-shadow: 0 0 1px rgba(68, 68, 68, 0.3);
+  }
+
   .bg-lightgray {
     background-color: #F5F5F5;
   }
@@ -53,28 +70,59 @@
     background-color: #FFD700;
   }
 
+  .bg-glossy-gold {
+    background: linear-gradient(135deg, #DAA520, #FFD700);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
   .bg-silver {
     background-color: #C0C0C0;
+  }
+
+  .bg-glossy-silver {
+    background: linear-gradient(135deg, #A0A0A0, #E8E8E8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 
   .border-gold {
     border-color: #FFD700;
   }
 
+  .border-glossy-gold {
+    border-color: #DAA520;
+  }
+
   .border-silver {
     border-color: #C0C0C0;
+  }
+
+  .border-glossy-silver {
+    border-color: #A0A0A0;
   }
 
   .hover\:text-gold:hover {
     color: #FFD700;
   }
 
+  .hover\:text-glossy-gold:hover {
+    color: #DAA520;
+    text-shadow: 0 0 3px rgba(218, 165, 32, 0.5);
+  }
+
   .hover\:bg-gold:hover {
     background-color: #FFD700;
   }
 
+  .hover\:bg-glossy-gold:hover {
+    background: linear-gradient(135deg, #FFD700, #DAA520);
+  }
+
   .hover\:border-gold:hover {
     border-color: #FFD700;
+  }
+
+  .hover\:border-glossy-gold:hover {
+    border-color: #DAA520;
   }
 
   .typing-container {
@@ -84,7 +132,7 @@
   .typing-text {
     display: inline-block;
     overflow: hidden;
-    border-right: .15em solid #FFD700;
+    border-right: .15em solid #DAA520;
     white-space: nowrap;
     margin: 0;
   }
@@ -97,12 +145,12 @@
   
   .scrolling-wrapper {
     display: inline-block;
-    animation: scroll 25s linear infinite;
+    animation: scroll 40s linear infinite;
   }
   
   .scrolling-wrapper-reverse {
     display: inline-block;
-    animation: scroll-reverse 25s linear infinite;
+    animation: scroll-reverse 40s linear infinite;
   }
   
   @keyframes scroll {
@@ -113,5 +161,10 @@
   @keyframes scroll-reverse {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(0); }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #DAA520 }
   }
 }

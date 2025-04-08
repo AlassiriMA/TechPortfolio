@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 /**
  * Header component displaying logo and navigation
@@ -26,6 +26,19 @@ const Header = () => {
     };
   }, []);
 
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [mobileMenuOpen]);
+
   // Toggle mobile menu
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -39,63 +52,118 @@ const Header = () => {
   return (
     <header 
       className={`fixed w-full bg-white z-50 transition-all duration-300 ${
-        isScrolled ? "shadow-md bg-opacity-95" : "bg-opacity-100"
+        isScrolled ? "shadow-lg bg-opacity-98" : "bg-opacity-100"
       }`}
       aria-label="Site header"
     >
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <a 
-          href="#home" 
-          className="font-poppins font-semibold text-xl tracking-tight text-gold"
-          aria-label="Mohammad A Alassiri's logo"
-        >
-          ma<span className="text-darkgray">@</span>alassiri
-        </a>
-        
-        {/* Mobile menu button */}
-        <div className="block md:hidden">
-          <button 
-            onClick={toggleMobileMenu}
-            className="flex items-center px-3 py-2 border rounded text-darkgray border-darkgray hover:text-gold hover:border-gold"
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileMenuOpen}
-          >
-            <Menu />
-          </button>
-        </div>
-        
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="#home" className="hover:text-gold transition-colors duration-300">Home</a>
-          <a href="#projects" className="hover:text-gold transition-colors duration-300">Projects</a>
-          <a href="#skills" className="hover:text-gold transition-colors duration-300">Skills</a>
-          <a href="#contact" className="hover:text-gold transition-colors duration-300">Contact</a>
+      <div className="container mx-auto px-6 py-4">
+        <nav className="flex justify-between items-center relative">
+          {/* Logo */}
           <a 
-            href="/MohammadAlassiri-CV.pdf" 
-            className="px-4 py-2 border-2 border-gold text-darkgray rounded hover:bg-gold hover:text-white transition-colors duration-300"
-            download
+            href="#home" 
+            className="font-poppins font-semibold text-xl tracking-tight text-glossy-gold inline-flex items-center"
+            aria-label="Mohammad A Alassiri's logo"
           >
-            Download CV
+            <img 
+              src="/icons/robot-icon.svg" 
+              alt="Robot Icon" 
+              className="w-7 h-7 mr-2"
+            />
+            ma<span className="text-glossy-silver">@</span>alassiri
           </a>
-        </div>
-      </nav>
+          
+          {/* Mobile menu button */}
+          <div className="block md:hidden">
+            <button 
+              onClick={toggleMobileMenu}
+              className="flex items-center p-2 text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#home" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Home</a>
+            <a href="#projects" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Projects</a>
+            <a href="#skills" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Skills</a>
+            <a href="#contact" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Contact</a>
+            <a 
+              href="/MohammadAlassiri-CV.pdf" 
+              className="px-5 py-2 border-2 border-glossy-gold text-glossy-darkgray rounded-md hover:bg-glossy-gold hover:text-white transition-all duration-300 shadow-sm"
+              download
+            >
+              Download CV
+            </a>
+          </div>
+        </nav>
+      </div>
       
       {/* Mobile Navigation */}
-      <div className={`md:hidden w-full bg-white p-4 ${mobileMenuOpen ? "block" : "hidden"}`}>
-        <div className="flex flex-col space-y-4">
-          <a href="#home" onClick={handleNavLinkClick} className="hover:text-gold transition-colors duration-300">Home</a>
-          <a href="#projects" onClick={handleNavLinkClick} className="hover:text-gold transition-colors duration-300">Projects</a>
-          <a href="#skills" onClick={handleNavLinkClick} className="hover:text-gold transition-colors duration-300">Skills</a>
-          <a href="#contact" onClick={handleNavLinkClick} className="hover:text-gold transition-colors duration-300">Contact</a>
-          <a 
-            href="/MohammadAlassiri-CV.pdf" 
-            className="px-4 py-2 border-2 border-gold text-darkgray rounded text-center hover:bg-gold hover:text-white transition-colors duration-300"
-            download
-            onClick={handleNavLinkClick}
-          >
-            Download CV
-          </a>
+      <div 
+        className={`fixed inset-0 bg-white z-40 transition-transform duration-300 transform ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        } md:hidden flex flex-col pt-24`}
+        aria-hidden={!mobileMenuOpen}
+      >
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col space-y-6 text-center">
+            <a 
+              href="#home" 
+              onClick={handleNavLinkClick} 
+              className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+            >
+              Home
+            </a>
+            <a 
+              href="#projects" 
+              onClick={handleNavLinkClick} 
+              className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+            >
+              Projects
+            </a>
+            <a 
+              href="#skills" 
+              onClick={handleNavLinkClick} 
+              className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+            >
+              Skills
+            </a>
+            <a 
+              href="#contact" 
+              onClick={handleNavLinkClick} 
+              className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+            >
+              Contact
+            </a>
+            <div className="pt-6">
+              <a 
+                href="/MohammadAlassiri-CV.pdf" 
+                className="inline-block px-8 py-3 border-2 border-glossy-gold text-glossy-darkgray rounded-md text-center hover:bg-glossy-gold hover:text-white transition-all duration-300 font-medium"
+                download
+                onClick={handleNavLinkClick}
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+          
+          <div className="mt-12 flex justify-center space-x-6">
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i className="ri-github-fill text-2xl text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300"></i>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i className="ri-linkedin-box-fill text-2xl text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300"></i>
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i className="ri-twitter-fill text-2xl text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300"></i>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i className="ri-instagram-fill text-2xl text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300"></i>
+            </a>
+          </div>
         </div>
       </div>
     </header>

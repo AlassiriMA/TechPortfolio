@@ -22,8 +22,8 @@ interface TypingAnimationProps {
 const TypingAnimation = ({ 
   texts, 
   className = "", 
-  typingSpeed = 150,
-  pauseDuration = 2000
+  typingSpeed = 70,
+  pauseDuration = 1500
 }: TypingAnimationProps) => {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -68,7 +68,7 @@ const TypingAnimation = ({
       <p 
         className={`typing-text ${className}`}
         style={{
-          borderRightColor: isTypingComplete ? '#FFD700' : 'transparent',
+          borderRightColor: isTypingComplete ? '#DAA520' : 'transparent',
           borderRightStyle: 'solid',
           borderRightWidth: '0.15em',
           animation: isTypingComplete 
