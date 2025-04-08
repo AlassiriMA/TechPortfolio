@@ -27,7 +27,7 @@ const ProjectDetail = () => {
           <h1 className="text-3xl font-montserrat font-bold text-glossy-darkgray mb-6">Project Not Found</h1>
           <p className="text-lg mb-8">Sorry, the project you're looking for doesn't exist or has been moved.</p>
           <Link 
-            to="/#projects" 
+            to="/" 
             className="inline-flex items-center gap-2 px-6 py-3 bg-glossy-gold text-white font-medium rounded-md hover:bg-opacity-90 transition-all duration-300"
           >
             <ArrowLeft size={18} />
@@ -59,7 +59,7 @@ const ProjectDetail = () => {
         <div className="bg-gradient-to-b from-white to-gray-50 pt-20 pb-16">
           <div className="container mx-auto px-6">
             <Link 
-              to="/#projects" 
+              to="/" 
               className="inline-flex items-center gap-2 text-glossy-darkgray hover:text-glossy-gold transition-colors mb-8"
             >
               <ArrowLeft size={18} />
