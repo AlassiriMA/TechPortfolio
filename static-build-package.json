@@ -1,0 +1,14 @@
+{
+  "name": "mohammad-alassiri-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --port 5000",
+    "build": "vite build",
+    "build:static": "node staticBuild.js",
+    "preview": "vite preview --port 5000",
+    "check": "tsc",
+    "test": "vitest run"
+  }
+}

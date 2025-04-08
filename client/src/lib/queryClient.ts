@@ -2,95 +2,77 @@ import { QueryClient, QueryFunction } from "@tanstack/react-query";
 import { sanitizeObject } from "./utils";
 
 /**
- * Throws an error if the response is not OK (status not in 200-299 range)
- * 
- * @param {Response} res - The fetch Response object to check
- * @throws {Error} If the response is not OK, with status code and error message
+ * Static site version of query client utilities
+ * Modified to work without a backend API
  */
-async function throwIfResNotOk(res: Response) {
-  if (!res.ok) {
-    const text = (await res.text()) || res.statusText;
-    throw new Error(`${res.status}: ${text}`);
-  }
+
+/**
+ * Simulates an API response for a static site
+ * 
+ * @param {string} dataType - The type of data being requested
+ * @returns {Promise<any>} A promise resolving to static data
+ */
+async function getStaticData(dataType: string): Promise<any> {
+  // For static sites, return predefined data instead of making API calls
+  // In a real scenario, you might have JSON files in the public folder
+  
+  // Simulate network delay for a more realistic experience
+  await new Promise(resolve => setTimeout(resolve, 300));
+  
+  // Return empty data - in a real implementation you would include your static data here
+  return {};
 }
 
 /**
- * Makes an API request with security enhancements (sanitization, CSRF protection)
+ * Static version of API request that doesn't perform actual network requests
+ * Can be used for maintaining API structure in components while being static-site friendly
  * 
  * @param {string} method - HTTP method (GET, POST, PUT, DELETE, etc.)
- * @param {string} url - API endpoint URL
- * @param {unknown} [data] - Optional data to send in the request body
- * @returns {Promise<Response>} The fetch Response object if successful
- * @throws {Error} If the response is not OK
+ * @param {string} dataType - The type of data being requested 
+ * @param {unknown} [data] - Optional data included with the request
+ * @returns {Promise<any>} A promise resolving to static data
  */
 export async function apiRequest(
   method: string,
-  url: string,
+  dataType: string,
   data?: unknown | undefined,
-): Promise<Response> {
-  // Sanitize request data to prevent XSS
-  const sanitizedData = data && typeof data === 'object' 
-    ? sanitizeObject(data as Record<string, any>) 
-    : data;
+): Promise<any> {
+  if (method === "GET") {
+    return getStaticData(dataType);
+  }
   
-  // Get CSRF token from meta tag if available (for CSRF protection)
-  const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+  // For POST/PUT/etc. methods, log to console and simulate success
+  console.log(`Static site: ${method} request to ${dataType} with data:`, data);
   
-  // Prepare headers with content type and optional CSRF token
-  const headers: Record<string, string> = {
-    ...(data ? { "Content-Type": "application/json" } : {}),
-    ...(csrfToken ? { "X-CSRF-Token": csrfToken } : {})
-  };
+  // For form submissions, you could trigger mailto links or other client-side actions here
   
-  const res = await fetch(url, {
-    method,
-    headers,
-    body: sanitizedData ? JSON.stringify(sanitizedData) : undefined,
-    credentials: "include", // Include cookies for auth
-  });
-
-  await throwIfResNotOk(res);
-  return res;
+  return { success: true };
 }
 
 /**
- * Type definition for how to handle unauthorized responses (401)
+ * Type definition for how to handle request errors
  */
-type UnauthorizedBehavior = "returnNull" | "throw";
+type ErrorBehavior = "returnNull" | "throw";
 
 /**
- * Creates a query function for TanStack Query with security enhancements
+ * Creates a static query function for TanStack Query
+ * Returns static data rather than making API requests
  * 
  * @param {Object} options - Configuration options
- * @param {UnauthorizedBehavior} options.on401 - How to handle 401 responses
+ * @param {ErrorBehavior} options.on401 - How to handle errors (maintained for API compatibility)
  * @returns {QueryFunction<T>} A query function for use with useQuery
  */
 export const getQueryFn: <T>(options: {
-  on401: UnauthorizedBehavior;
+  on401: ErrorBehavior;
 }) => QueryFunction<T> =
-  ({ on401: unauthorizedBehavior }) =>
+  () =>
   async ({ queryKey }) => {
-    // Add CSRF token to request headers if available
-    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-    const headers: Record<string, string> = {
-      ...(csrfToken ? { "X-CSRF-Token": csrfToken } : {})
-    };
+    // Extract data type from the query key
+    const dataType = queryKey[0] as string;
     
-    const res = await fetch(queryKey[0] as string, {
-      credentials: "include", // Include cookies for auth
-      headers
-    });
-
-    // Handle unauthorized responses according to config
-    if (unauthorizedBehavior === "returnNull" && res.status === 401) {
-      return null;
-    }
-
-    await throwIfResNotOk(res);
-    
-    // Parse and sanitize response data
-    const data = await res.json();
-    return data; // No need to sanitize response data as it comes from our trusted API
+    // Return static data for this data type
+    const result = await getStaticData(dataType);
+    return result as unknown as T;
   };
 
 export const queryClient = new QueryClient({
