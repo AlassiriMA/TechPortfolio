@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 
 /**
- * Props for the TypingAnimation component
+ * Props interface for the TypingAnimation component
+ * 
+ * @interface TypingAnimationProps
+ * @property {string[]} texts - Array of text strings to display in sequence with the typing effect
+ * @property {string} [className] - Optional CSS class name to apply custom styling to the typing text
+ * @property {number} [typingSpeed=70] - Speed of typing in milliseconds between each character appearance
+ * @property {number} [pauseDuration=1500] - Duration in milliseconds to pause after completing a text before deleting
  */
 interface TypingAnimationProps {
   texts: string[];
@@ -11,13 +17,34 @@ interface TypingAnimationProps {
 }
 
 /**
- * Component that displays text with a typing animation effect
+ * A component that creates a typewriter-style text animation effect
  * 
- * @param texts - Array of texts to animate
- * @param className - Optional CSS class for styling
- * @param typingSpeed - Speed of typing in milliseconds
- * @param pauseDuration - Duration to pause between texts in milliseconds
- * @returns Component with animated typing effect
+ * This component simulates a typing effect by progressively revealing characters
+ * of the provided text strings. It cycles through the array of texts, typing each
+ * one out character by character, pausing when complete, then deleting it before
+ * moving to the next text string.
+ * 
+ * The animation follows this sequence:
+ * 1. Type the current text character by character
+ * 2. Pause with a blinking cursor when text is fully displayed
+ * 3. Delete the text character by character
+ * 4. Move to the next text in the array and repeat
+ * 
+ * @component
+ * @param {TypingAnimationProps} props - Component properties
+ * @param {string[]} props.texts - Array of text strings to display in sequence
+ * @param {string} [props.className=""] - Optional CSS class for styling the text
+ * @param {number} [props.typingSpeed=70] - Time in milliseconds between typing each character
+ * @param {number} [props.pauseDuration=1500] - Time in milliseconds to pause after showing complete text
+ * @returns {JSX.Element} The animated typing text component
+ * 
+ * @example
+ * <TypingAnimation
+ *   texts={["Frontend Developer", "UX Designer", "Problem Solver"]}
+ *   className="text-2xl text-glossy-gold"
+ *   typingSpeed={50}
+ *   pauseDuration={2000}
+ * />
  */
 const TypingAnimation = ({ 
   texts, 

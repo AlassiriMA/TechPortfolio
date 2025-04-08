@@ -1,27 +1,51 @@
 /**
- * Props for TechIcon component
+ * Props interface for the TechIcon component
+ * 
+ * @interface TechIconProps
+ * @property {string} name - The name of the technology to display
+ * @property {string} icon - The icon class (from RemixIcon library) for visual representation 
+ * @property {string} color - The hex color code for the icon and progress indicators
+ * @property {string} [url] - Optional URL that makes the icon a clickable link
+ * @property {string} [description] - Optional description text displayed in the tooltip
+ * @property {number} [proficiency] - Optional skill proficiency level (0-100) for the progress indicator
  */
 interface TechIconProps {
   name: string;
   icon: string;
   color: string;
   url?: string;
-  // Add optional description for the tooltip
   description?: string;
-  // Add optional proficiency level (0-100)
   proficiency?: number;
 }
 
 /**
- * Component for displaying a technology icon with name and interactive effects
+ * Interactive component for displaying technology skills with visual indicators
  * 
- * @param name - The name of the technology
- * @param icon - The icon class (from RemixIcon)
- * @param color - The hex color for the icon
- * @param url - Optional URL to make the icon clickable
- * @param description - Optional description for the tooltip
- * @param proficiency - Optional proficiency level (0-100)
- * @returns A styled icon with label and interactive effects
+ * Displays a technology with an icon, name, and interactive hover effects including:
+ * - Circular progress indicator showing proficiency level
+ * - Star rating display (0-5 stars based on proficiency)
+ * - Tooltip with skill description
+ * - Link to the technology's official documentation (if URL provided)
+ * 
+ * @component
+ * @param {TechIconProps} props - Component properties
+ * @param {string} props.name - The name of the technology
+ * @param {string} props.icon - The icon class from RemixIcon
+ * @param {string} props.color - The hex color for the icon and indicators
+ * @param {string} [props.url] - Optional URL to make the icon clickable
+ * @param {string} [props.description] - Optional description for the tooltip (defaults to "Experienced with [name]")
+ * @param {number} [props.proficiency] - Optional proficiency level from 0-100 (defaults to 85)
+ * @returns {JSX.Element} A styled icon with label and interactive effects
+ * 
+ * @example
+ * <TechIcon 
+ *   name="React" 
+ *   icon="ri-reactjs-fill" 
+ *   color="#61DAFB" 
+ *   url="https://reactjs.org"
+ *   description="Building modern UIs with React and Hooks"
+ *   proficiency={95}
+ * />
  */
 const TechIcon = ({ 
   name, 
