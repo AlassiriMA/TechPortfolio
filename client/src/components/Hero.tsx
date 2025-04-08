@@ -27,8 +27,8 @@ const Hero = () => {
                 loading="eager"
               />
             </div>
-            <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl mb-6">
-              <span className="text-glossy-gold">Mohammad A</span> <span className="text-glossy-silver">Alassiri</span>
+            <h1 className="font-montserrat font-normal text-4xl md:text-5xl lg:text-6xl mb-6">
+              <span className="text-glossy-gold">mohammad a</span> <span className="text-glossy-silver">alassiri</span>
             </h1>
             <div className="mb-8 mx-auto">
               <TypingAnimation 
@@ -38,7 +38,7 @@ const Hero = () => {
               />
             </div>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Full-stack developer turning complex challenges into elegant solutions.
+              full-stack developer turning complex challenges into elegant solutions.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a 
