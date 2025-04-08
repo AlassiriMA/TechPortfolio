@@ -1,7 +1,7 @@
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, X, ZoomIn } from "lucide-react";
 import { useParams, Link, useLocation } from "wouter";
 import { projectsData } from "../data/projects";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -13,6 +13,90 @@ import Header from "../components/Header";
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = projectsData.find(project => project.id === id);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState<string | null>(null);
+
+  // Handler to open lightbox with a specific image
+  const openLightbox = (imageSrc: string) => {
+    setCurrentImage(imageSrc);
+    setLightboxOpen(true);
+    // Prevent body scrolling when lightbox is open
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Handler to close lightbox
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setCurrentImage(null);
+    // Re-enable body scrolling
+    document.body.style.overflow = 'auto';
+  };
+
+  // Effect for keyboard support in lightbox mode
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxOpen) {
+        // Close lightbox on ESC key
+        if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [lightboxOpen, closeLightbox]);
+
+  // Update document title and meta tags for SEO
+  useEffect(() => {
+    if (project) {
+      // Update document title
+      document.title = `${project.title} | Mohammad A Alassiri Portfolio`;
+      
+      // Update meta description
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', `${project.title} - ${project.description}. View detailed project information, technologies used, and outcomes.`);
+      }
+      
+      // Add JSON-LD structured data for better SEO
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        'name': project.title,
+        'description': project.description,
+        'creator': {
+          '@type': 'Person',
+          'name': 'Mohammad A Alassiri'
+        },
+        'image': project.imgSrc,
+        'skills': project.technologies.join(', '),
+        ...(project.demoLink && { 'url': project.demoLink }),
+        ...(project.githubLink && { 'codeRepository': project.githubLink })
+      });
+      
+      document.head.appendChild(script);
+      
+      // Clean up on unmount
+      return () => {
+        // Reset title
+        document.title = 'Mohammad A Alassiri | Professional Portfolio - Technology & AI Expert';
+        
+        // Reset meta description
+        if (metaDescription) {
+          metaDescription.setAttribute('content', 'Mohammad A Alassiri - Professional portfolio showcasing innovative projects and expertise in AI, development, and technology solutions. Explore detailed case studies, skills, and technologies.');
+        }
+        
+        // Remove JSON-LD script
+        document.head.removeChild(script);
+      };
+    }
+  }, [project]);
 
   useEffect(() => {
     // Scroll to top when the component mounts
@@ -109,12 +193,17 @@ const ProjectDetail = () => {
                 </div>
               </div>
               
-              <div className="rounded-lg overflow-hidden shadow-xl">
+              <div className="rounded-lg overflow-hidden shadow-xl cursor-pointer group" onClick={() => openLightbox(imgSrc)}>
                 <img 
                   src={imgSrc} 
                   alt={imgAlt} 
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-glossy-darkgray bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <span className="bg-glossy-gold text-white px-4 py-2 rounded-md shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-2">
+                    <ZoomIn size={18} /> Click to Enlarge
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -178,12 +267,22 @@ const ProjectDetail = () => {
                   <div className="grid grid-cols-1 gap-8">
                     {detailContent.screenshots.map((screenshot, index) => (
                       <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
-                        <img 
-                          src={screenshot.src} 
-                          alt={screenshot.alt} 
-                          className="w-full h-auto object-cover"
-                          loading="lazy"
-                        />
+                        <div 
+                          className="cursor-pointer group relative" 
+                          onClick={() => openLightbox(screenshot.src)}
+                        >
+                          <img 
+                            src={screenshot.src} 
+                            alt={screenshot.alt} 
+                            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-glossy-darkgray bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <span className="bg-glossy-gold text-white px-4 py-2 rounded-md shadow-lg transform opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-2">
+                              <ZoomIn size={18} /> Click to Enlarge
+                            </span>
+                          </div>
+                        </div>
                         {screenshot.caption && (
                           <div className="p-4 text-center text-gray-600 italic">
                             {screenshot.caption}
@@ -238,6 +337,26 @@ const ProjectDetail = () => {
       </main>
 
       <Footer />
+
+      {/* Lightbox component */}
+      {lightboxOpen && currentImage && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4" onClick={closeLightbox}>
+          <div className="relative max-w-7xl max-h-full overflow-auto" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={currentImage} 
+              alt="Enlarged view" 
+              className="max-w-full max-h-screen object-contain mx-auto"
+            />
+            <button 
+              className="absolute top-4 right-4 bg-glossy-gold text-white p-2 rounded-full hover:bg-opacity-90 transition-all duration-300"
+              onClick={closeLightbox}
+              aria-label="Close lightbox"
+            >
+              <X size={24} />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

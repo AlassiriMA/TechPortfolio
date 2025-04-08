@@ -43,16 +43,23 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
-      <div className="h-48 overflow-hidden">
+      <Link to={`/project/${id}`} className="block h-48 overflow-hidden group">
         <img 
           src={imgSrc} 
           alt={imgAlt} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-      </div>
+        <div className="absolute inset-0 bg-glossy-darkgray bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+          <span className="bg-glossy-gold text-white px-4 py-2 rounded-md shadow-lg transform -translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+            View Details
+          </span>
+        </div>
+      </Link>
       <div className="p-6">
-        <h3 className="font-montserrat font-semibold text-xl mb-2">{title}</h3>
+        <Link to={`/project/${id}`} className="block hover:text-glossy-gold transition-colors">
+          <h3 className="font-montserrat font-semibold text-xl mb-2">{title}</h3>
+        </Link>
         <p className="text-glossy-darkgray mb-4">{description}</p>
         <div className="flex flex-wrap gap-2 mb-6">
           {technologies.map((tech, index) => (

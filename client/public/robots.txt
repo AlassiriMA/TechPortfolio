@@ -1,4 +1,7 @@
+# robots.txt for mohammadalassiri.com
 User-agent: *
 Allow: /
+Disallow: /private/
 
+# Sitemap
 Sitemap: https://mohammadalassiri.com/sitemap.xml
