@@ -1,17 +1,19 @@
 import { Toaster } from "@/components/ui/toaster";
+import { Route, Switch } from "wouter";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ProjectDetail from "./pages/ProjectDetail";
+import NotFound from "./pages/not-found";
 
 /**
- * Main application component that renders all sections of the portfolio
+ * Homepage component that renders the main portfolio sections
  * 
- * @returns The complete portfolio website
+ * @returns The portfolio homepage
  */
-function App() {
+const HomePage = () => {
   return (
     <>
       <Header />
@@ -19,9 +21,25 @@ function App() {
         <Hero />
         <Projects />
         <Skills />
-        <Contact />
       </main>
       <Footer />
+    </>
+  );
+};
+
+/**
+ * Main application component that handles routing
+ * 
+ * @returns The complete portfolio website with routing
+ */
+function App() {
+  return (
+    <>
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route path="/project/:id" component={ProjectDetail} />
+        <Route component={NotFound} />
+      </Switch>
       <Toaster />
     </>
   );

@@ -89,7 +89,6 @@ const Header = () => {
             <a href="#home" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Home</a>
             <a href="#projects" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Projects</a>
             <a href="#skills" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Skills</a>
-            <a href="#contact" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Contact</a>
             <a 
               href="/MohammadAlassiri-CV.pdf" 
               className="px-5 py-2 border-2 border-glossy-gold text-glossy-darkgray rounded-md hover:bg-glossy-gold hover:text-white transition-all duration-300 shadow-sm"
@@ -130,13 +129,6 @@ const Header = () => {
               className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
             >
               Skills
-            </a>
-            <a 
-              href="#contact" 
-              onClick={handleNavLinkClick} 
-              className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
-            >
-              Contact
             </a>
             <div className="pt-6">
               <a 
