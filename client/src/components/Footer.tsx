@@ -114,7 +114,7 @@ const Footer = () => {
             <ul className="space-y-3 text-gray-800">
               <li className="flex items-start">
                 <i className="ri-map-pin-fill text-glossy-gold mr-3 mt-1"></i>
-                <span>Amsterdam, The Netherlands</span>
+                <span>Riyadh, Saudi Arabia</span>
               </li>
               <li className="flex items-center">
                 <i className="ri-mail-fill text-glossy-gold mr-3"></i>
