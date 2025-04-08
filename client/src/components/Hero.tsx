@@ -7,9 +7,11 @@ import TypingAnimation from "./TypingAnimation";
  */
 const Hero = () => {
   const typingTexts = [
-    "Passionate developer with a flair for creating innovative solutions.",
-    "Full-stack developer specializing in modern web technologies.",
-    "Problem solver turning complex challenges into elegant solutions."
+    "developer",
+    "designer",
+    "problem solver",
+    "modern technology",
+    "innovative solutions"
   ];
 
   return (
@@ -36,7 +38,7 @@ const Hero = () => {
               />
             </div>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Transforming ideas into elegant digital experiences through cutting-edge technology and creative problem-solving.
+              Full-stack developer turning complex challenges into elegant solutions.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a 
