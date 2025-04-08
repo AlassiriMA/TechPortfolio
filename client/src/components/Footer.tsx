@@ -88,7 +88,9 @@ const Footer = () => {
           {/* Technologies */}
           <div className="md:col-span-1">
             <h3 className="font-montserrat font-semibold text-glossy-gold text-lg mb-4">Technologies</h3>
-            <ul className="space-y-2 text-gray-300 grid grid-cols-2 gap-2">
+            <ul className="space-y-2 text-gray-800 grid grid-cols-2 gap-2">
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">HTML5</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">CSS3</a></li>
               <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">JavaScript</a></li>
               <li><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">TypeScript</a></li>
               <li><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">React</a></li>
@@ -96,9 +98,7 @@ const Footer = () => {
               <li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">Python</a></li>
               <li><a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">PostgreSQL</a></li>
               <li><a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">MongoDB</a></li>
-              <li><a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">Flutter</a></li>
-              <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">GitHub</a></li>
-              <li><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">Docker</a></li>
+              <li><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="hover:text-glossy-gold transition-colors duration-300">TailwindCSS</a></li>
             </ul>
           </div>
         </div>
