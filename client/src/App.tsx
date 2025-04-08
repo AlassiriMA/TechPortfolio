@@ -8,6 +8,9 @@ import Skills from "./components/Skills";
 import Footer from "./components/Footer";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/not-found";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import Sitemap from "./pages/Sitemap";
 
 /**
  * Homepage component that renders the main portfolio sections
@@ -79,6 +82,9 @@ function App() {
       <Switch>
         <Route path="/" component={HomePage} />
         <Route path="/project/:id" component={ProjectDetail} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-of-service" component={TermsOfService} />
+        <Route path="/sitemap" component={Sitemap} />
         <Route component={NotFound} />
       </Switch>
       <Toaster />

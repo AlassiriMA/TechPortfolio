@@ -150,11 +150,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center text-gray-800">
           <p>© {currentYear} Mohammad A Alassiri. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex flex-wrap justify-center gap-4">
-            <a href="#" className="text-sm text-gray-800 hover:text-glossy-gold transition-colors duration-300">Privacy Policy</a>
+            <Link to="/privacy-policy" className="text-sm text-gray-800 hover:text-glossy-gold transition-colors duration-300">Privacy Policy</Link>
             <span className="hidden md:inline text-gray-800">|</span>
-            <a href="#" className="text-sm text-gray-800 hover:text-glossy-gold transition-colors duration-300">Terms of Service</a>
+            <Link to="/terms-of-service" className="text-sm text-gray-800 hover:text-glossy-gold transition-colors duration-300">Terms of Service</Link>
             <span className="hidden md:inline text-gray-800">|</span>
-            <a href="#" className="text-sm text-gray-800 hover:text-glossy-gold transition-colors duration-300">Sitemap</a>
+            <Link to="/sitemap" className="text-sm text-gray-800 hover:text-glossy-gold transition-colors duration-300">Sitemap</Link>
           </div>
           <p className="mt-4 md:mt-0 text-gray-800">Designed with <span className="text-glossy-gold">♥</span> by Mohammad</p>
         </div>
