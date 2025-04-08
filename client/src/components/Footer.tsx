@@ -1,3 +1,5 @@
+import { Link, useLocation } from "wouter";
+
 /**
  * Footer component with navigation links and copyright information
  * 
@@ -5,6 +7,8 @@
  */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [location] = useLocation();
+  const isHomePage = location === "/";
   
   return (
     <footer className="bg-darkgray text-gray-800 py-14">
@@ -12,39 +16,63 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {/* Logo and tagline */}
           <div className="md:col-span-1">
-            <a 
-              href="#home" 
-              className="font-poppins font-semibold text-2xl tracking-tight text-glossy-gold inline-flex items-center"
-              aria-label="Mohammad A Alassiri's logo"
-            >
-              <img 
-                src="/icons/robot-icon.svg" 
-                alt="Robot Icon" 
-                className="w-8 h-8 mr-2"
-              />
-              ma<span className="text-glossy-silver">@</span>alassiri
-            </a>
+            {isHomePage ? (
+              <a 
+                href="#home" 
+                className="font-poppins font-semibold text-2xl tracking-tight text-glossy-gold inline-flex items-center"
+                aria-label="Mohammad A Alassiri's logo"
+              >
+                <img 
+                  src="/icons/robot-icon.svg" 
+                  alt="Robot Icon" 
+                  className="w-8 h-8 mr-2"
+                />
+                ma<span className="text-glossy-silver">@</span>alassiri
+              </a>
+            ) : (
+              <Link 
+                to="/" 
+                className="font-poppins font-semibold text-2xl tracking-tight text-glossy-gold inline-flex items-center"
+                aria-label="Mohammad A Alassiri's logo"
+              >
+                <img 
+                  src="/icons/robot-icon.svg" 
+                  alt="Robot Icon" 
+                  className="w-8 h-8 mr-2"
+                />
+                ma<span className="text-glossy-silver">@</span>alassiri
+              </Link>
+            )}
             <p className="text-gray-800 mt-4 text-sm">
               Transforming ideas into elegant digital experiences through innovative technology solutions.
             </p>
-            <div className="mt-6 flex space-x-4">
+            <div className="mt-6 flex flex-wrap gap-4">
               <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <i className="ri-github-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
               </a>
               <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <i className="ri-linkedin-box-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <i className="ri-twitter-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <i className="ri-twitter-x-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
+              </a>
+              <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i className="ri-facebook-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
               </a>
               <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <i className="ri-instagram-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
               </a>
-              <a href="https://dev.to/" target="_blank" rel="noopener noreferrer" aria-label="Dev.to">
-                <i className="ri-code-box-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
+              <a href="https://t.me/" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <i className="ri-telegram-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
               </a>
-              <a href="https://medium.com/" target="_blank" rel="noopener noreferrer" aria-label="Medium">
-                <i className="ri-medium-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i className="ri-whatsapp-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
+              </a>
+              <a href="https://reddit.com/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+                <i className="ri-reddit-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
+              </a>
+              <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                <i className="ri-discord-fill text-2xl text-gray-800 hover:text-glossy-gold transition-colors duration-300"></i>
               </a>
             </div>
             
@@ -65,9 +93,19 @@ const Footer = () => {
           <div className="md:col-span-1">
             <h3 className="font-montserrat font-semibold text-glossy-gold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-800">
-              <li><a href="#home" className="hover:text-glossy-gold transition-colors duration-300">Home</a></li>
-              <li><a href="#projects" className="hover:text-glossy-gold transition-colors duration-300">Projects</a></li>
-              <li><a href="#skills" className="hover:text-glossy-gold transition-colors duration-300">Skills</a></li>
+              {isHomePage ? (
+                <>
+                  <li><a href="#home" className="hover:text-glossy-gold transition-colors duration-300">Home</a></li>
+                  <li><a href="#projects" className="hover:text-glossy-gold transition-colors duration-300">Projects</a></li>
+                  <li><a href="#skills" className="hover:text-glossy-gold transition-colors duration-300">Skills</a></li>
+                </>
+              ) : (
+                <>
+                  <li><Link to="/" className="hover:text-glossy-gold transition-colors duration-300">Home</Link></li>
+                  <li><Link to="/#projects" className="hover:text-glossy-gold transition-colors duration-300">Projects</Link></li>
+                  <li><Link to="/#skills" className="hover:text-glossy-gold transition-colors duration-300">Skills</Link></li>
+                </>
+              )}
               <li><a href="#" className="hover:text-glossy-gold transition-colors duration-300">Blog</a></li>
               <li><a href="/MohammadAlassiri-CV.pdf" target="_blank" className="hover:text-glossy-gold transition-colors duration-300" download>Download CV</a></li>
             </ul>

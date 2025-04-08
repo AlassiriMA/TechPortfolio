@@ -1,5 +1,5 @@
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
-import { useParams, Link } from "wouter";
+import { useParams, Link, useLocation } from "wouter";
 import { projectsData } from "../data/projects";
 import { useEffect } from "react";
 import Footer from "../components/Footer";

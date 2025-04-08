@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "wouter";
 
 /**
  * Header component displaying logo and navigation
@@ -9,6 +10,8 @@ import { Menu, X } from "lucide-react";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [location] = useLocation();
+  const isHomePage = location === "/";
 
   // Handle scroll event to change header style
   useEffect(() => {
@@ -59,18 +62,33 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <nav className="flex justify-between items-center relative">
           {/* Logo */}
-          <a 
-            href="#home" 
-            className="font-poppins font-semibold text-xl tracking-tight text-glossy-gold inline-flex items-center"
-            aria-label="Mohammad A Alassiri's logo"
-          >
-            <img 
-              src="/icons/robot-icon.svg" 
-              alt="Robot Icon" 
-              className="w-7 h-7 mr-2"
-            />
-            ma<span className="text-glossy-silver">@</span>alassiri
-          </a>
+          {isHomePage ? (
+            <a 
+              href="#home" 
+              className="font-poppins font-semibold text-xl tracking-tight text-glossy-gold inline-flex items-center"
+              aria-label="Mohammad A Alassiri's logo"
+            >
+              <img 
+                src="/icons/robot-icon.svg" 
+                alt="Robot Icon" 
+                className="w-7 h-7 mr-2"
+              />
+              ma<span className="text-glossy-silver">@</span>alassiri
+            </a>
+          ) : (
+            <Link 
+              to="/" 
+              className="font-poppins font-semibold text-xl tracking-tight text-glossy-gold inline-flex items-center"
+              aria-label="Mohammad A Alassiri's logo"
+            >
+              <img 
+                src="/icons/robot-icon.svg" 
+                alt="Robot Icon" 
+                className="w-7 h-7 mr-2"
+              />
+              ma<span className="text-glossy-silver">@</span>alassiri
+            </Link>
+          )}
           
           {/* Mobile menu button */}
           <div className="block md:hidden">
@@ -86,9 +104,19 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Home</a>
-            <a href="#projects" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Projects</a>
-            <a href="#skills" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Skills</a>
+            {isHomePage ? (
+              <>
+                <a href="#home" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Home</a>
+                <a href="#projects" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Projects</a>
+                <a href="#skills" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Skills</a>
+              </>
+            ) : (
+              <>
+                <Link to="/" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Home</Link>
+                <Link to="/#projects" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Projects</Link>
+                <Link to="/#skills" className="text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300">Skills</Link>
+              </>
+            )}
             <a 
               href="/MohammadAlassiri-CV.pdf" 
               className="px-5 py-2 border-2 border-glossy-gold text-glossy-darkgray rounded-md hover:bg-glossy-gold hover:text-white transition-all duration-300 shadow-sm"
@@ -109,27 +137,55 @@ const Header = () => {
       >
         <div className="container mx-auto px-6">
           <div className="flex flex-col space-y-6 text-center">
-            <a 
-              href="#home" 
-              onClick={handleNavLinkClick} 
-              className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
-            >
-              Home
-            </a>
-            <a 
-              href="#projects" 
-              onClick={handleNavLinkClick} 
-              className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
-            >
-              Projects
-            </a>
-            <a 
-              href="#skills" 
-              onClick={handleNavLinkClick} 
-              className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
-            >
-              Skills
-            </a>
+            {isHomePage ? (
+              <>
+                <a 
+                  href="#home" 
+                  onClick={handleNavLinkClick} 
+                  className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+                >
+                  Home
+                </a>
+                <a 
+                  href="#projects" 
+                  onClick={handleNavLinkClick} 
+                  className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+                >
+                  Projects
+                </a>
+                <a 
+                  href="#skills" 
+                  onClick={handleNavLinkClick} 
+                  className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+                >
+                  Skills
+                </a>
+              </>
+            ) : (
+              <>
+                <Link 
+                  to="/" 
+                  onClick={handleNavLinkClick} 
+                  className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+                >
+                  Home
+                </Link>
+                <Link 
+                  to="/#projects" 
+                  onClick={handleNavLinkClick} 
+                  className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+                >
+                  Projects
+                </Link>
+                <Link 
+                  to="/#skills" 
+                  onClick={handleNavLinkClick} 
+                  className="text-xl font-montserrat font-medium text-glossy-darkgray hover:text-glossy-gold transition-colors duration-300 py-2"
+                >
+                  Skills
+                </Link>
+              </>
+            )}
             <div className="pt-6">
               <a 
                 href="/MohammadAlassiri-CV.pdf" 
