@@ -25,6 +25,40 @@ html {
   html {
     scroll-behavior: smooth;
   }
+  
+  /* Custom styling for policy page content */
+  .custom-prose h2 {
+    @apply text-2xl font-semibold text-glossy-darkgray border-b border-gray-100 pb-2 mb-4;
+  }
+  
+  .custom-prose h3 {
+    @apply text-xl font-semibold text-glossy-gold mt-6 mb-3;
+  }
+  
+  .custom-prose p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .custom-prose ul {
+    @apply pl-6 mb-6 space-y-2;
+  }
+  
+  .custom-prose ul li {
+    @apply relative pl-2;
+  }
+  
+  .custom-prose ul li::before {
+    content: "";
+    @apply absolute left-0 top-[0.6em] h-1.5 w-1.5 bg-glossy-gold rounded-full -ml-4;
+  }
+  
+  .custom-prose a {
+    @apply text-glossy-gold hover:underline;
+  }
+  
+  .custom-prose blockquote {
+    @apply pl-4 border-l-4 border-glossy-gold bg-gray-50 p-3 italic my-6;
+  }
 }
 
 @layer utilities {
@@ -38,6 +72,26 @@ html {
 
   .font-poppins {
     font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Custom scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #daa520;
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c99514;
   }
 
   /* Legacy colors */
