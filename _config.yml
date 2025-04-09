@@ -7,6 +7,8 @@ description: >-
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://alassiri.nl" # the base hostname & protocol for your site
 enforce_ssl: alassiri.nl # forces HTTPS redirection
+ssl: true
+ssl_verify: true
 twitter_username: mohammadalassiri
 github_username:  mohammadalassiri
 
