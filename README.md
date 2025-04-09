@@ -1,78 +1,90 @@
 
 # Mohammad A Alassiri - Professional Portfolio
 
-This is my professional portfolio website built with React, TypeScript, and Tailwind CSS, showcasing my skills, projects, and professional experience.
+This is my professional portfolio website built with Jekyll for GitHub Pages, showcasing my skills, projects, and professional experience.
 
 ## Features
 
 - Responsive design for all devices
 - Interactive typing animation on homepage
 - Project showcase with detailed project pages
-- Skills section with interactive tech icons
-- AI-powered color palette generator
+- Skills section with horizontally scrolling tech icons
+- Static color palette generator (no API keys required)
+- Interactive code examples with syntax highlighting
 - SEO optimized with meta tags
 - Fast loading and high performance
 - Secure HTTPS connection
-- Custom domain setup
+- Custom domain setup (alassiri.nl)
 
 ## Tech Stack
 
-- React 18 with TypeScript
-- Tailwind CSS for styling
-- Vite for build tooling
-- Express.js backend
-- Node.js runtime
-- Shadcn UI components
-- Drizzle ORM
-- React Query for data fetching
-- React Hook Form for form handling
-- Framer Motion for animations
+- Jekyll for static site generation
+- GitHub Pages for hosting
+- GitHub Actions for CI/CD
+- HTML5, CSS3, and JavaScript (vanilla)
+- SCSS for styling
+- Security headers and CSP
+- Custom domain with HTTPS
 
 ## Project Structure
 
 ```
-├── client/          # Frontend React application
-├── server/          # Express.js backend
-├── shared/          # Shared types and schemas
-├── docs/            # Documentation and build output
-└── public/          # Static assets
+├── _data/              # Data files for the site (YAML, JSON)
+├── _includes/          # Reusable components for templates
+├── _layouts/           # Page layout templates
+├── _posts/             # Blog posts
+├── _projects/          # Project data files
+├── _sass/              # SCSS files
+├── assets/             # Static assets (images, JS, CSS)
+├── docs/               # Documentation
+├── .github/workflows/  # GitHub Actions workflow files
+└── various root files  # Configuration files
 ```
 
 ## Development
 
 1. Install dependencies:
    ```
-   npm install
+   bundle install
    ```
 
-2. Start the development server:
+2. Start the Jekyll development server:
    ```
-   npm run dev
+   bundle exec jekyll serve --livereload
    ```
 
-3. Open your browser and visit: `http://localhost:5000`
+3. Open your browser and visit: `http://localhost:4000`
 
-## Testing
+## API Independence
 
-Run the test suite:
-```
-npm run test
-```
+The website has been completely redesigned to remove all external API dependencies:
 
-## Building
+- **Code Highlighter**: Uses a static implementation with pre-written explanations in YAML
+- **Color Palette Generator**: Uses predefined color palettes instead of OpenAI-generated ones
+- **Content Security Policy**: Updated to reflect the removal of API dependencies
 
-Build the project for production:
-```
-npm run build
-```
+This approach ensures the site can be deployed to GitHub Pages without any API keys or external services required.
+
+## Deployment
+
+Deployment is handled automatically through GitHub Actions:
+
+1. Push changes to the main branch
+2. GitHub Actions builds the Jekyll site
+3. The site is deployed to the gh-pages branch
+4. GitHub Pages serves the site with HTTPS
+
+For detailed instructions, see the [deployment guide](docs/deployment-guide.md).
 
 ## Security
 
 - HTTPS enforced
 - Content Security Policy implemented
-- Strict Transport Security enabled
-- XSS protection headers
-- Secure cookie configuration
+- Strict Transport Security (HSTS) enabled
+- X-Content-Type-Options header
+- X-Frame-Options header
+- X-XSS-Protection header
+- Referrer Policy header
 
 ## License
 

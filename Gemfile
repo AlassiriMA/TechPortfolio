@@ -12,9 +12,6 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 # kramdown v2 ships without the gfm parser by default
 gem "kramdown-parser-gfm"
 
-# Lock jekyll-sass-converter to 2.x on Linux/macOS
-gem "jekyll-sass-converter", "~> 2.0"
-
 # Theme
 gem "minima"
 
