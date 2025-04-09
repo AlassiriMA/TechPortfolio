@@ -51,13 +51,49 @@ After updating your DNS records:
 
 GitHub will automatically provision and manage SSL certificates for your domain.
 
-## Troubleshooting
+## SSL Certificate Provisioning
 
-If you encounter issues with SSL:
+After setting up your DNS records and configuring GitHub Pages:
 
-1. Ensure DNS is properly configured
-2. Check for CAA records that might restrict certificate issuance
-3. Verify the CNAME file in your repository contains your domain name
-4. Check for SSL provisioning status in GitHub Pages settings
+1. GitHub will automatically begin provisioning SSL certificates for your domain
+2. This process can take up to 24 hours to complete
+3. During this time, you might see SSL errors when accessing your site with HTTPS
+4. You can check the provisioning status in your repository's Settings > Pages section
 
-For more help, refer to [GitHub's documentation on custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+### Common SSL Certificate Errors
+
+If you see errors like `no alternative certificate subject name matches target host name`:
+
+1. This indicates that the SSL certificate doesn't yet include your custom domain
+2. Be patient as GitHub needs time to issue and provision the certificate
+3. The site will still be accessible via HTTP during this period
+4. Once the certificate is provisioned, HTTPS will work automatically
+
+## Troubleshooting DNS and SSL Issues
+
+If you continue to experience issues with SSL after 24 hours:
+
+1. **Verify DNS configuration**:
+   - Run `dig alassiri.nl +noall +answer` to confirm DNS records are correct
+   - Ensure all four GitHub Pages IP addresses are properly configured
+   - Check that the CNAME record points to the correct GitHub Pages domain
+
+2. **Check for conflicting records**:
+   - Remove any conflicting AAAA records
+   - Ensure there are no CAA records that restrict certificate issuance
+   - Verify you don't have both CNAME and A records for the apex domain
+
+3. **Force certificate regeneration**:
+   - In GitHub Pages settings, temporarily remove your custom domain
+   - Save the changes
+   - Add your custom domain back
+   - This will trigger a new certificate provisioning process
+
+4. **Verify repository settings**:
+   - Ensure the CNAME file in your repository contains only your domain name
+   - Check that the custom domain field in GitHub Pages settings is correct
+   - Make sure "Enforce HTTPS" is checked
+
+For more help, refer to:
+- [GitHub's documentation on custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
+- [Troubleshooting custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages)

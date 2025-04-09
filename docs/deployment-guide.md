@@ -91,12 +91,33 @@ After deployment, verify your HTTPS configuration:
 
 ## Troubleshooting
 
-If you encounter issues with HTTPS:
+### SSL Certificate Issues
 
-1. Ensure DNS propagation is complete (can take up to 48 hours)
-2. Verify DNS records match GitHub's requirements
-3. Check GitHub Pages settings for any errors
-4. If certificate provisioning fails, remove and re-add the custom domain
+When you first set up a custom domain, you might see this error in curl or browser:
+```
+SSL: no alternative certificate subject name matches target host name 'alassiri.nl'
+```
+
+This is normal and occurs because:
+1. GitHub needs time to provision the SSL certificate (up to 24 hours)
+2. The DNS records might not have fully propagated yet
+
+To resolve SSL certificate issues:
+
+1. **Wait for provisioning**: GitHub automatically provisions certificates, but it takes time
+2. **Verify DNS configuration**:
+   - Ensure your DNS records match GitHub's requirements (see DNS Configuration section)
+   - Wait for DNS propagation (can take up to 48 hours)
+3. **Check GitHub Pages settings**:
+   - Go to repository Settings > Pages
+   - Verify the custom domain is correctly set
+   - Look for any error messages or warnings
+4. **Force certificate regeneration**:
+   - If certificate provisioning fails after 24 hours, remove and re-add the custom domain
+
+### Deployment Permission Issues
+
+For permission-related errors, refer to the [GitHub Token Guide](github-token-guide.md).
 
 ## Maintenance
 

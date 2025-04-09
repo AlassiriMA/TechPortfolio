@@ -50,8 +50,8 @@ jobs:
           token: ${{ secrets.DEPLOY_TOKEN || secrets.GITHUB_TOKEN }}
           clean: true
 
-      - name: Test HTTPS accessibility
+      - name: Notify about deployment completion
         run: |
-          echo "Waiting for deployment to complete..."
-          sleep 120
-          curl -I https://alassiri.nl
+          echo "Deployment to GitHub Pages completed."
+          echo "NOTE: The SSL certificate for alassiri.nl may take up to 24 hours to be provisioned by GitHub."
+          echo "You can check deployment status in your repository's Settings > Pages."
