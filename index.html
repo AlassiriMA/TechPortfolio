@@ -1,0 +1,475 @@
+---
+layout: default
+title: Home
+---
+
+<section id="home" class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-subtitle">Hello, I'm</p>
+      <h1 class="hero-title">Mohammad A <span class="highlight">Alassiri</span></h1>
+      <p class="hero-description">
+        I specialize in 
+        <span class="typing-animation" data-texts='["Frontend Development", "UX Design", "AI Integration", "Problem Solving"]'>Frontend Development</span>
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="/#skills" class="btn btn-outline">My Skills</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Featured Projects</h2>
+      <p>A showcase of my recent work and technical expertise</p>
+    </div>
+    
+    <div class="projects-grid">
+      {% for project in site.projects limit:6 %}
+        <div class="project-card">
+          <a href="{{ project.url | relative_url }}" class="project-image">
+            <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+          </a>
+          <div class="project-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.excerpt | truncate: 120 }}</p>
+            <div class="project-tech">
+              {% for tech in project.technologies %}
+                <span>{{ tech }}</span>
+              {% endfor %}
+            </div>
+            <div class="project-links">
+              {% if project.demo_link %}
+                <a href="{{ project.demo_link }}" target="_blank" rel="noopener noreferrer">
+                  <i class="ri-external-link-line"></i> Demo
+                </a>
+              {% endif %}
+              {% if project.github_link %}
+                <a href="{{ project.github_link }}" target="_blank" rel="noopener noreferrer">
+                  <i class="ri-github-fill"></i> GitHub
+                </a>
+              {% endif %}
+              <a href="{{ project.url | relative_url }}">
+                <i class="ri-information-line"></i> Details
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Technical Skills</h2>
+      <p>Technologies and tools I work with</p>
+    </div>
+    
+    <div class="skills-container">
+      <div class="skills-row">
+        <!-- Frontend Skills -->
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-reactjs-fill" style="color: #61DAFB;"></i>
+          </div>
+          <span class="tech-icon-name">React</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-vuejs-fill" style="color: #41B883;"></i>
+          </div>
+          <span class="tech-icon-name">Vue.js</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-javascript-fill" style="color: #F7DF1E;"></i>
+          </div>
+          <span class="tech-icon-name">JavaScript</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-typescript-fill" style="color: #3178C6;"></i>
+          </div>
+          <span class="tech-icon-name">TypeScript</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-html5-fill" style="color: #E34F26;"></i>
+          </div>
+          <span class="tech-icon-name">HTML5</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-css3-fill" style="color: #1572B6;"></i>
+          </div>
+          <span class="tech-icon-name">CSS3</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-tailwind-css-fill" style="color: #06B6D4;"></i>
+          </div>
+          <span class="tech-icon-name">Tailwind</span>
+        </div>
+      </div>
+      
+      <div class="skills-row">
+        <!-- Backend Skills -->
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-nodejs-fill" style="color: #339933;"></i>
+          </div>
+          <span class="tech-icon-name">Node.js</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-python-fill" style="color: #3776AB;"></i>
+          </div>
+          <span class="tech-icon-name">Python</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-database-2-fill" style="color: #336791;"></i>
+          </div>
+          <span class="tech-icon-name">PostgreSQL</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-database-fill" style="color: #47A248;"></i>
+          </div>
+          <span class="tech-icon-name">MongoDB</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-server-fill" style="color: #FF6C37;"></i>
+          </div>
+          <span class="tech-icon-name">Express</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-firefox-fill" style="color: #007ACC;"></i>
+          </div>
+          <span class="tech-icon-name">RESTful APIs</span>
+        </div>
+      </div>
+      
+      <div class="skills-row">
+        <!-- AI Skills -->
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-robot-fill" style="color: #10a37f;"></i>
+          </div>
+          <span class="tech-icon-name">GPT-4</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-brain-fill" style="color: #FF6B6B;"></i>
+          </div>
+          <span class="tech-icon-name">Machine Learning</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-chat-3-fill" style="color: #007bff;"></i>
+          </div>
+          <span class="tech-icon-name">NLP</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-file-search-fill" style="color: #764ABC;"></i>
+          </div>
+          <span class="tech-icon-name">Data Analysis</span>
+        </div>
+        
+        <div class="tech-icon">
+          <div class="tech-icon-img">
+            <i class="ri-vip-crown-fill" style="color: #F9A826;"></i>
+          </div>
+          <span class="tech-icon-name">Prompt Engineering</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI Color Palette Generator Section -->
+<section id="palette-generator" class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Color Palette Generator</h2>
+      <p>Generate custom color schemes for your projects</p>
+    </div>
+    
+    <div class="palette-generator-container">
+      <div class="palette-form">
+        <div class="palette-input-group">
+          <label for="palettePrompt">Choose a palette style:</label>
+          <select id="palettePrompt" class="palette-input">
+            <option value="professional">Professional & Corporate</option>
+            <option value="creative">Creative & Vibrant</option>
+            <option value="minimal">Minimal & Clean</option>
+            <option value="tech">Tech & Modern</option>
+            <option value="elegant">Elegant & Luxury</option>
+          </select>
+          <button id="generatePaletteBtn" class="btn btn-primary palette-btn">Generate Palette</button>
+        </div>
+      </div>
+      
+      <div id="paletteResults" class="palette-results" style="display: none;">
+        <div class="color-palette">
+          <div id="colorSwatches" class="color-swatches"></div>
+        </div>
+        
+        <div class="palette-actions">
+          <button id="applyPaletteBtn" class="btn btn-primary">Apply to Website</button>
+          <button id="resetPaletteBtn" class="btn btn-outline">Reset Colors</button>
+        </div>
+        
+        <div id="paletteErrorMessage" class="palette-error" style="display: none;">
+          Error generating color palette. Please try again.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const generatePaletteBtn = document.getElementById('generatePaletteBtn');
+  const palettePromptInput = document.getElementById('palettePrompt');
+  const paletteResults = document.getElementById('paletteResults');
+  const colorSwatches = document.getElementById('colorSwatches');
+  const applyPaletteBtn = document.getElementById('applyPaletteBtn');
+  const resetPaletteBtn = document.getElementById('resetPaletteBtn');
+  const paletteErrorMessage = document.getElementById('paletteErrorMessage');
+  
+  let currentPalette = null;
+  let resetPaletteFunc = null;
+  
+  // Initialize the static palette generator
+  initColorPaletteGenerator();
+  
+  // Generate palette
+  generatePaletteBtn.addEventListener('click', async () => {
+    const paletteType = palettePromptInput.value;
+    if (!paletteType) return;
+    
+    // Show loading state
+    generatePaletteBtn.disabled = true;
+    generatePaletteBtn.textContent = 'Generating...';
+    paletteErrorMessage.style.display = 'none';
+    
+    try {
+      // Generate palette using static implementation
+      currentPalette = await colorPaletteGenerator.generatePalette(paletteType);
+      
+      // Display colors
+      colorSwatches.innerHTML = '';
+      currentPalette.colors.forEach(color => {
+        const swatch = document.createElement('div');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = color.hex;
+        
+        const colorInfo = document.createElement('div');
+        colorInfo.className = 'color-info';
+        colorInfo.innerHTML = `
+          <span class="color-name">${color.name}</span>
+          <span class="color-hex">${color.hex}</span>
+          <span class="color-description">${color.description}</span>
+        `;
+        
+        swatch.appendChild(colorInfo);
+        colorSwatches.appendChild(swatch);
+      });
+      
+      paletteResults.style.display = 'block';
+    } catch (error) {
+      console.error('Failed to generate palette:', error);
+      // We shouldn't have errors with static palette generation, but just in case
+      paletteErrorMessage.style.display = 'block';
+      paletteErrorMessage.textContent = 'Error: Failed to generate palette. Please try again.';
+    } finally {
+      generatePaletteBtn.disabled = false;
+      generatePaletteBtn.textContent = 'Generate Palette';
+    }
+  });
+  
+  // Apply palette to website
+  applyPaletteBtn.addEventListener('click', () => {
+    if (currentPalette) {
+      // Reset previous palette if applied
+      if (resetPaletteFunc) {
+        resetPaletteFunc();
+      }
+      
+      // Apply new palette
+      resetPaletteFunc = colorPaletteGenerator.applyPalette(currentPalette, true);
+      applyPaletteBtn.textContent = 'Palette Applied!';
+      
+      // Reset button text after 2 seconds
+      setTimeout(() => {
+        applyPaletteBtn.textContent = 'Apply to Website';
+      }, 2000);
+    }
+  });
+  
+  // Reset website colors
+  resetPaletteBtn.addEventListener('click', () => {
+    if (resetPaletteFunc) {
+      resetPaletteFunc();
+      resetPaletteFunc = null;
+      resetPaletteBtn.textContent = 'Colors Reset!';
+      
+      // Reset button text after 2 seconds
+      setTimeout(() => {
+        resetPaletteBtn.textContent = 'Reset Colors';
+      }, 2000);
+    }
+  });
+});
+</script>
+
+<style>
+/* Styles specific to the color palette generator */
+.palette-generator-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.palette-input-group {
+  margin-bottom: 1.5rem;
+}
+
+.palette-input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.palette-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid rgba(131, 135, 138, 0.2);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.palette-input:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+.palette-btn {
+  padding: 0.8rem 1.5rem;
+}
+
+.api-key-note {
+  font-size: 0.9rem;
+  color: #83878a;
+  margin-top: 0.5rem;
+}
+
+.palette-results {
+  margin-top: 2rem;
+}
+
+.color-swatches {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .color-swatches {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.color-swatch {
+  height: 120px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.color-swatch:hover {
+  transform: scale(1.05);
+}
+
+.color-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.8rem;
+  transition: all 0.3s ease;
+  transform: translateY(100%);
+}
+
+.color-swatch:hover .color-info {
+  transform: translateY(0);
+}
+
+.color-name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.color-hex {
+  display: block;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #83878a;
+  margin: 0.2rem 0;
+}
+
+.color-description {
+  display: block;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.palette-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.palette-error {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+</style>

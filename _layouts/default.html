@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- Force HTTPS -->
+  <script type="text/javascript">
+    var host = "alassiri.nl";
+    if ((host == window.location.host) && (window.location.protocol != "https:")) {
+      window.location.protocol = "https";
+    }
+  </script>
+  
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net; font-src 'self' fonts.gstatic.com fonts.googleapis.com cdnjs.cloudflare.com; img-src 'self' data:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+  
+  <!-- Domain Verification -->
+  <meta name="google-site-verification" content="verification-code">
+  <meta name="msvalidate.01" content="verification-code">
+  
+  <!-- SEO Tags -->
+  {% seo title=false %}
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Remixicon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Custom page CSS -->
+  {% if page.custom_css %}
+    {% for css_file in page.custom_css %}
+      <link rel="stylesheet" href="{{ '/assets/css/' | append: css_file | append: '.css' | relative_url }}">
+    {% endfor %}
+  {% endif %}
+  
+  <!-- Extra head content -->
+  {% if page.extra_head %}
+    {{ page.extra_head }}
+  {% endif %}
+</head>
+<body>
+  <div class="site-container">
+    {% include header.html %}
+    
+    <main class="site-content">
+      {{ content }}
+    </main>
+    
+    {% include footer.html %}
+  </div>
+  
+  <!-- Main JavaScript -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  
+  <!-- Custom page JavaScript -->
+  {% if page.custom_js %}
+    {% for js_file in page.custom_js %}
+      <script src="{{ '/assets/js/' | append: js_file | append: '.js' | relative_url }}"></script>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,84 @@
+---
+layout: default
+---
+
+<div class="project-detail">
+  <div class="container">
+    <div class="project-header">
+      <h1 class="project-detail-title">{{ page.title }}</h1>
+      <p class="project-detail-subtitle">{{ page.excerpt }}</p>
+      <div class="project-detail-tech">
+        {% for tech in page.technologies %}
+          <span>{{ tech }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="project-detail-content">
+      <div class="project-detail-main">
+        {{ content }}
+      </div>
+      
+      <div class="project-detail-aside">
+        <div class="project-detail-links">
+          {% if page.demo_link %}
+            <a href="{{ page.demo_link }}" target="_blank" rel="noopener noreferrer">
+              <i class="ri-external-link-line"></i> View Live Demo
+            </a>
+          {% endif %}
+          
+          {% if page.github_link %}
+            <a href="{{ page.github_link }}" target="_blank" rel="noopener noreferrer">
+              <i class="ri-github-fill"></i> View Source Code
+            </a>
+          {% endif %}
+          
+          <a href="{{ '/#projects' | relative_url }}">
+            <i class="ri-arrow-left-line"></i> Back to Projects
+          </a>
+        </div>
+        
+        {% if page.technologies %}
+          <div class="project-detail-tech-stack">
+            <h4>Technologies Used</h4>
+            
+            {% for tech in page.technologies %}
+              <div class="tech-item">
+                <div class="tech-icon-mini">
+                  <i class="ri-code-s-slash-line"></i>
+                </div>
+                <div class="tech-text">
+                  <h5>{{ tech }}</h5>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+        
+        {% if page.date %}
+          <div class="project-date">
+            <p><strong>Completed:</strong> {{ page.date | date: "%B %Y" }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if page.image %}
+  <style>
+    .project-detail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      background-image: url('{{ page.image | relative_url }}');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.05;
+      z-index: -1;
+    }
+  </style>
+{% endif %}

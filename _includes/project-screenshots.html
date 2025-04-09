@@ -1,0 +1,16 @@
+{% if include.screenshots %}
+<div class="project-screenshots">
+  <h3>Project Screenshots</h3>
+  
+  <div class="screenshots-grid">
+    {% for screenshot in include.screenshots %}
+      <figure class="screenshot-item">
+        <img src="{{ screenshot.src | relative_url }}" alt="{{ screenshot.alt }}">
+        {% if screenshot.caption %}
+          <figcaption>{{ screenshot.caption }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

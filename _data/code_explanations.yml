@@ -1,0 +1,97 @@
+# Code Snippet Explanations
+# This file contains pre-written explanations for code snippets
+
+portfolio-html:
+  title: "Portfolio HTML Structure"
+  explanation: >
+    <h3>Portfolio HTML Structure Explained</h3>
+    <p>This HTML code forms the basic structure of a portfolio section. It uses semantic HTML5 elements for improved accessibility and SEO:</p>
+    <ul>
+      <li><code>&lt;section&gt;</code> defines a distinct section of the document</li>
+      <li><code>&lt;article&gt;</code> represents a self-contained composition (each project)</li>
+      <li>Classes follow the BEM (Block Element Modifier) naming convention for better CSS organization</li>
+    </ul>
+    <p>The nested structure creates a logical hierarchy that makes the content more understandable to both users and search engines:</p>
+    <ol>
+      <li>The section contains a heading that identifies the content</li>
+      <li>Projects are arranged in a grid layout</li>
+      <li>Each project card contains image, title, description, and links</li>
+    </ol>
+    <p>This structure is both semantically correct and easy to style with CSS.</p>
+
+responsive-css:
+  title: "Responsive CSS Media Queries"
+  explanation: >
+    <h3>Responsive CSS Breakdown</h3>
+    <p>This CSS implements a mobile-first approach with media queries that adjust the layout for different screen sizes:</p>
+    <ul>
+      <li>Base styles target mobile devices by default</li>
+      <li>The <code>@media</code> queries progressively enhance the layout for larger screens</li>
+      <li>Grid-based layout uses CSS Grid for modern, flexible positioning</li>
+    </ul>
+    <p>Key responsive techniques used:</p>
+    <ul>
+      <li><strong>Grid template columns</strong>: Start with a single column on mobile, increase to 2 columns on tablet, and 3 columns on desktop</li>
+      <li><strong>Relative units</strong>: Using <code>rem</code> for spacing ensures the layout scales with the user's preferred text size</li>
+      <li><strong>Transitions</strong>: Smooth animations enhance the user experience without being distracting</li>
+    </ul>
+    <p>The hover effect is subtle but effective, providing visual feedback without overwhelming the user.</p>
+
+animation-js:
+  title: "JavaScript Animation Function"
+  explanation: >
+    <h3>Smooth Scrolling Animation Analysis</h3>
+    <p>This JavaScript code creates a smooth scrolling effect when users click on anchor links. Key components include:</p>
+    <ul>
+      <li><strong>Function with parameters</strong>: Allows reusing the animation with different elements and durations</li>
+      <li><strong>Easing function</strong>: Creates a natural-feeling motion by varying the speed throughout the animation</li>
+      <li><strong>requestAnimationFrame</strong>: Optimizes performance by syncing with the browser's repaint cycle</li>
+    </ul>
+    <p>The implementation follows these steps:</p>
+    <ol>
+      <li>Calculate the start and target positions for scrolling</li>
+      <li>Use an easing function to create natural movement</li>
+      <li>Apply the animation using requestAnimationFrame for optimal performance</li>
+      <li>Apply the function to all anchor links on the page</li>
+    </ol>
+    <p>This approach is more performant than using jQuery or other libraries for scroll animations, as it leverages modern browser APIs and minimizes unnecessary calculations.</p>
+
+react-component:
+  title: "React Component Structure"
+  explanation: >
+    <h3>React Component Architecture</h3>
+    <p>This React component follows modern best practices for a reusable UI element:</p>
+    <ul>
+      <li><strong>Functional Component</strong>: Uses the preferred function-based syntax rather than class-based components</li>
+      <li><strong>Hooks</strong>: Implements useState and useEffect for state management and side effects</li>
+      <li><strong>PropTypes</strong>: Defines a clear contract for the component's expected props</li>
+      <li><strong>Conditional Rendering</strong>: Only renders the image when an URL is provided</li>
+    </ul>
+    <p>The component includes several React patterns:</p>
+    <ul>
+      <li>Using a <code>useEffect</code> hook for animation timing when the component mounts</li>
+      <li>Clean-up function to prevent memory leaks by clearing the timeout</li>
+      <li>Callback props (<code>onProjectClick</code>) for parent-child communication</li>
+      <li>Conditional className assignment for styling based on component state</li>
+      <li>Preventing event bubbling with <code>stopPropagation()</code> on nested elements</li>
+    </ul>
+    <p>The component is reusable, maintainable, and follows React's unidirectional data flow pattern.</p>
+
+python-class:
+  title: "Python Class Structure"
+  explanation: >
+    <h3>Python Class Implementation</h3>
+    <p>This Python code demonstrates object-oriented programming principles with a class that represents portfolio projects:</p>
+    <ul>
+      <li><strong>Class Definition</strong>: Creates a blueprint for project objects</li>
+      <li><strong>Constructor</strong>: Initializes new instances with required properties</li>
+      <li><strong>Methods</strong>: Encapsulate behavior related to the project</li>
+      <li><strong>Docstrings</strong>: Provide documentation for the class and its methods</li>
+    </ul>
+    <p>Python-specific features used:</p>
+    <ul>
+      <li>List comprehension for concise transformation of data in <code>get_technologies_html</code></li>
+      <li>Special <code>__str__</code> method for string representation</li>
+      <li>Default parameter values in the constructor</li>
+    </ul>
+    <p>The script also demonstrates creating instances of the class and iterating through them to display information, which is a common pattern in data-driven applications.</p>

@@ -1,0 +1,82 @@
+# Site settings
+title: Mohammad A Alassiri | Portfolio
+email: contact@alassiri.nl
+description: >-
+  Professional portfolio website showcasing Mohammad A Alassiri's professional journey,
+  skills, and projects using modern web development practices.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://alassiri.nl" # the base hostname & protocol for your site
+enforce_ssl: alassiri.nl # forces HTTPS redirection
+twitter_username: mohammadalassiri
+github_username:  mohammadalassiri
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - node_modules
+  - dist
+  - client
+  - server
+  - shared
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - README.md
+  - STATIC_MIGRATION.md
+  - drizzle.config.ts
+  - postcss.config.js
+  - tailwind.config.ts
+  - tsconfig.json
+  - vite.config.ts
+  - vite.static.config.js
+  - staticBuild.js
+  - test-static.js
+  - docs/
+  - .gitignore
+  - .replit
+  - replit.nix
+  - run-tests.sh
+  - static-build-package.json
+  - vitest.config.ts
+
+# Collection settings
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# SEO settings
+social:
+  name: Mohammad A Alassiri
+  links:
+    - https://github.com/mohammadalassiri
+    - https://twitter.com/mohammadalassiri
+    - https://linkedin.com/in/mohammadalassiri
+
+# Custom variables
+accent_color: "#d4af37" # Glossy gold

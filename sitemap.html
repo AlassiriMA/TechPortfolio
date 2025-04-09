@@ -1,0 +1,174 @@
+---
+layout: default
+title: Sitemap
+permalink: /sitemap/
+---
+
+<div class="sitemap-page">
+  <div class="container">
+    <div class="sitemap-header">
+      <h1>Sitemap</h1>
+      <p>Navigate through all pages and resources available on this website</p>
+    </div>
+    
+    <div class="sitemap-search">
+      <input type="text" id="sitemapSearch" placeholder="Search pages...">
+      <button id="searchBtn" aria-label="Search">
+        <i class="ri-search-line"></i>
+      </button>
+    </div>
+    
+    <div class="sitemap-grid">
+      <div class="sitemap-section">
+        <h3>Main Pages</h3>
+        <ul>
+          <li>
+            <a href="{{ '/' | relative_url }}">
+              <i class="ri-home-line"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/#projects' | relative_url }}">
+              <i class="ri-folder-line"></i> Projects
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/#skills' | relative_url }}">
+              <i class="ri-tools-line"></i> Skills
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/code-examples' | relative_url }}">
+              <i class="ri-code-line"></i> Code Examples
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/#palette-generator' | relative_url }}">
+              <i class="ri-palette-line"></i> Color Palette Generator
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="sitemap-section">
+        <h3>Projects</h3>
+        <ul class="projects-list">
+          {% for project in site.projects %}
+          <li>
+            <a href="{{ project.url | relative_url }}">
+              <i class="ri-file-list-line"></i> {{ project.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <div class="sitemap-section">
+        <h3>Legal Pages</h3>
+        <ul>
+          <li>
+            <a href="{{ '/privacy-policy' | relative_url }}">
+              <i class="ri-shield-line"></i> Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/terms-of-service' | relative_url }}">
+              <i class="ri-file-text-line"></i> Terms of Service
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/security-policy' | relative_url }}">
+              <i class="ri-lock-line"></i> Security Policy
+            </a>
+          </li>
+          <li>
+            <a href="{{ '/sitemap' | relative_url }}">
+              <i class="ri-sitemap"></i> Sitemap
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="sitemap-section">
+        <h3>Resources</h3>
+        <ul>
+          <li>
+            <a href="{{ '/MohammadAlassiri-CV.pdf' | relative_url }}" target="_blank">
+              <i class="ri-file-paper-line"></i> Download CV
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/mohammadalassiri" target="_blank" rel="noopener noreferrer">
+              <i class="ri-github-fill"></i> GitHub Profile
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/mohammadalassiri" target="_blank" rel="noopener noreferrer">
+              <i class="ri-linkedin-box-fill"></i> LinkedIn Profile
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('sitemapSearch');
+  const searchBtn = document.getElementById('searchBtn');
+  const allLinks = document.querySelectorAll('.sitemap-section li a');
+  
+  function searchSitemap() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    
+    if (searchTerm === '') {
+      allLinks.forEach(link => {
+        link.parentElement.style.display = 'block';
+      });
+      return;
+    }
+    
+    allLinks.forEach(link => {
+      const linkText = link.textContent.toLowerCase();
+      if (linkText.includes(searchTerm)) {
+        link.parentElement.style.display = 'block';
+        
+        // Highlight the matching text
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        const originalHTML = link.innerHTML;
+        const newHTML = originalHTML.replace(regex, '<span class="highlight">$1</span>');
+        
+        if (originalHTML !== newHTML) {
+          link.innerHTML = newHTML;
+        }
+      } else {
+        link.parentElement.style.display = 'none';
+      }
+    });
+  }
+  
+  searchBtn.addEventListener('click', searchSitemap);
+  searchInput.addEventListener('keyup', function(e) {
+    // Reset highlights
+    allLinks.forEach(link => {
+      link.innerHTML = link.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+    });
+    
+    searchSitemap();
+    
+    if (e.key === 'Enter') {
+      searchSitemap();
+    }
+  });
+});
+</script>
+
+<style>
+.highlight {
+  background-color: rgba(212, 175, 55, 0.2);
+  font-weight: bold;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+</style>

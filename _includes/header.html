@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="{{ '/' | relative_url }}" class="logo">
+        <span class="logo-text">MA</span>
+      </a>
+      
+      <nav class="main-navigation">
+        <ul class="nav-items">
+          <li><a href="{{ '/#home' | relative_url }}" class="nav-link">Home</a></li>
+          <li><a href="{{ '/#projects' | relative_url }}" class="nav-link">Projects</a></li>
+          <li><a href="{{ '/#skills' | relative_url }}" class="nav-link">Skills</a></li>
+          <li><a href="{{ '/code-examples' | relative_url }}" class="nav-link">Code Examples</a></li>
+          <li><a href="{{ '/sitemap' | relative_url }}" class="nav-link">Sitemap</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="hamburger-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <div class="container">
+    <ul class="mobile-nav-items">
+      <li><a href="{{ '/#home' | relative_url }}" class="mobile-nav-link">Home</a></li>
+      <li><a href="{{ '/#projects' | relative_url }}" class="mobile-nav-link">Projects</a></li>
+      <li><a href="{{ '/#skills' | relative_url }}" class="mobile-nav-link">Skills</a></li>
+      <li><a href="{{ '/code-examples' | relative_url }}" class="mobile-nav-link">Code Examples</a></li>
+      <li><a href="{{ '/sitemap' | relative_url }}" class="mobile-nav-link">Sitemap</a></li>
+    </ul>
+  </div>
+</div>

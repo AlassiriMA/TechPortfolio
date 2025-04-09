@@ -1,0 +1,19 @@
+- src: /assets/images/portfolio-homepage.jpg
+  alt: "Portfolio Homepage"
+  caption: "The responsive homepage with the typing animation"
+
+- src: /assets/images/portfolio-projects.jpg
+  alt: "Projects Section"
+  caption: "Projects section with interactive card elements"
+
+- src: /assets/images/portfolio-skills.jpg
+  alt: "Skills Section"
+  caption: "Horizontally scrolling skills showcase"
+
+- src: /assets/images/portfolio-palette.jpg
+  alt: "AI Color Palette Generator"
+  caption: "The interactive color palette generator powered by AI"
+
+- src: /assets/images/portfolio-mobile.jpg
+  alt: "Mobile View"
+  caption: "Responsive design optimized for mobile devices"
