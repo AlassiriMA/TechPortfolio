@@ -14,8 +14,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Paths
-const distDir = path.join(__dirname, 'dist');
-const publicDir = path.join(distDir, 'public');
+const docsDir = path.join(__dirname, 'docs');
 
 console.log('🚀 Building static site for GitHub Pages...');
 
@@ -24,13 +23,13 @@ try {
   console.log('📦 Building React application...');
   execSync('vite build --config vite.static.config.js', { stdio: 'inherit' });
   
-  // Create a CNAME file for GitHub Pages custom domain (if needed)
-  // Uncomment and modify if you have a custom domain
-  // fs.writeFileSync(path.join(publicDir, 'CNAME'), 'yourdomain.com');
+  // Create a CNAME file for GitHub Pages custom domain
+  console.log('🌐 Creating CNAME file for custom domain...');
+  fs.writeFileSync(path.join(docsDir, 'CNAME'), 'alassiri.com');
   
   // Create a .nojekyll file to disable Jekyll processing on GitHub Pages
   console.log('🔧 Creating .nojekyll file...');
-  fs.writeFileSync(path.join(publicDir, '.nojekyll'), '');
+  fs.writeFileSync(path.join(docsDir, '.nojekyll'), '');
   
   // Create a basic 404.html that redirects to index.html for SPA routing
   console.log('🔄 Creating 404.html for SPA routing...');
@@ -58,10 +57,10 @@ try {
 </html>
   `;
   
-  fs.writeFileSync(path.join(publicDir, '404.html'), notFoundContent.trim());
+  fs.writeFileSync(path.join(docsDir, '404.html'), notFoundContent.trim());
   
   console.log('✅ Static site build complete! Ready for GitHub Pages deployment.');
-  console.log('📂 Output directory: ' + publicDir);
+  console.log('📂 Output directory: ' + docsDir);
   
 } catch (error) {
   console.error('❌ Build failed:', error);

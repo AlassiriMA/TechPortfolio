@@ -1,0 +1,23 @@
+{
+  "name": "Mohammad A Alassiri - Technology & AI Expert",
+  "short_name": "Mohammad Alassiri",
+  "description": "Portfolio website showcasing Mohammad A Alassiri's professional journey, skills, and projects in technology and AI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#DAA520",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

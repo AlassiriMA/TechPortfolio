@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /privacy-policy
+Disallow: /terms-of-service
+
+# Sitemaps
+Sitemap: https://alassiri.nl/sitemap.xml
