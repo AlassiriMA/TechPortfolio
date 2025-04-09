@@ -31,7 +31,9 @@ This guide provides instructions for setting up and developing the portfolio web
 
 ## Common Issues and Solutions
 
-### Bundle Install Dependency Conflicts
+### Common Jekyll Issues
+
+#### Bundle Install Dependency Conflicts
 
 If you encounter conflicts between `github-pages` gem and other dependencies like `jekyll-sass-converter`, try these solutions:
 
@@ -47,6 +49,18 @@ If you encounter conflicts between `github-pages` gem and other dependencies lik
    ```
 
 3. If you need a specific Jekyll version for local development but want to deploy to GitHub Pages, consider using different Gemfiles for development vs. production.
+
+#### Invalid Date in Vendor Template Files
+
+If you encounter an error like `Invalid date '<%= Time.now.strftime('%Y-%m-%d %H:%M:%S %z') %>'` during the Jekyll build process, it's likely related to Jekyll trying to process template files in the vendor directory. The solution is to exclude the vendor directory in your `_config.yml`:
+
+```yaml
+exclude:
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+```
 
 ### Static Site Features
 

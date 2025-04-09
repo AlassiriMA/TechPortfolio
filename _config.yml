@@ -48,6 +48,10 @@ exclude:
   - run-tests.sh
   - static-build-package.json
   - vitest.config.ts
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
 
 # Collection settings
 collections:
