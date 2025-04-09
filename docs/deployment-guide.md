@@ -39,6 +39,26 @@ This repository includes a GitHub Actions workflow file at `.github/workflows/de
 
 The workflow runs automatically when changes are pushed to the main branch.
 
+### Workflow Permissions
+
+The workflow requires proper permissions to deploy to GitHub Pages. The following permissions are set in the workflow file:
+
+```yaml
+permissions:
+  contents: write  # Needed to push to the repository
+  pages: write     # Needed for GitHub Pages
+  id-token: write  # Needed for token authentication
+```
+
+If you encounter deployment errors like "Permission denied" (403), make sure these permissions are correctly set in your workflow file. Additionally, you may need to check the repository settings:
+
+1. Go to your repository's Settings > Actions > General
+2. Scroll down to "Workflow permissions"
+3. Select "Read and write permissions"
+4. Save the changes
+
+For detailed instructions on setting up tokens and permissions, see the [GitHub Token Guide](github-token-guide.md).
+
 ## SSL/HTTPS Overview
 
 GitHub Pages handles SSL/HTTPS automatically:

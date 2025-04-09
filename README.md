@@ -76,6 +76,31 @@ Deployment is handled automatically through GitHub Actions:
 
 For detailed instructions, see the [deployment guide](docs/deployment-guide.md).
 
+### Troubleshooting GitHub Actions Deployment
+
+If you encounter a "Permission denied" (403) error during deployment:
+
+1. **Check Workflow Permissions**:
+   - Ensure the `.github/workflows/deploy.yml` file has the correct permissions section:
+     ```yaml
+     permissions:
+       contents: write
+       pages: write
+       id-token: write
+     ```
+
+2. **Update Repository Settings**:
+   - Go to your repository's Settings > Actions > General
+   - Scroll down to "Workflow permissions"
+   - Select "Read and write permissions"
+   - Save the changes
+   
+3. **Personal Access Token Alternative**:
+   - If the default `GITHUB_TOKEN` doesn't work, you can create a Personal Access Token (PAT)
+   - Add it as a repository secret named `DEPLOY_TOKEN`
+   - The workflow is already configured to use this token if available
+   - For detailed instructions, see the [GitHub Token Guide](docs/github-token-guide.md)
+
 ## Security
 
 - HTTPS enforced
