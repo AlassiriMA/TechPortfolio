@@ -7,8 +7,8 @@ channel = "stable-24_05"
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["npm", "run", "start"]
-build = ["npm", "run", "build"]
+run = ["sh", "-c", "bundle exec jekyll serve --ssl-key=./.ssl/server.key --ssl-cert=./.ssl/server.crt"]
+build = ["sh", "-c", "bundle exec jekyll build"]
 
 [[ports]]
 localPort = 5000
