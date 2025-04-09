@@ -1,0 +1,432 @@
+/* 
+ * Interactive AI-Driven Code Snippet Highlighter
+ * Styles for code highlighting, interactive elements, and explanations
+ */
+
+/* Container styles */
+.code-snippet-container {
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background-color: #1e1e1e;
+  font-family: 'Fira Code', 'Roboto Mono', monospace;
+}
+
+/* Toolbar styles */
+.code-snippet-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #444;
+}
+
+.code-language {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background-color: #444;
+  color: #d4af37;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+
+.code-copy-btn,
+.code-explain-btn {
+  background-color: transparent;
+  border: 1px solid #555;
+  color: #ccc;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.code-copy-btn i,
+.code-explain-btn i {
+  margin-right: 0.3rem;
+}
+
+.code-copy-btn:hover,
+.code-explain-btn:hover {
+  background-color: #444;
+  color: #fff;
+  border-color: #666;
+}
+
+.code-explain-btn {
+  background-color: #393939;
+  color: #d4af37;
+  border-color: #d4af37;
+}
+
+.code-explain-btn:hover {
+  background-color: #333;
+  color: #ffcc44;
+  border-color: #ffcc44;
+}
+
+/* Code container styles */
+pre {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  overflow: auto;
+  background-color: #1e1e1e;
+}
+
+pre > code {
+  flex: 1;
+  padding: 1rem 0.5rem 1rem 0;
+  font-family: 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: visible;
+  white-space: pre;
+  tab-size: 4;
+}
+
+/* Line numbers */
+.line-numbers {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.5rem;
+  color: #666;
+  text-align: right;
+  background-color: #272727;
+  user-select: none;
+  border-right: 1px solid #444;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.line-number {
+  padding: 0 0.5rem;
+  min-width: 2rem;
+}
+
+/* Code lines */
+.code-content {
+  width: 100%;
+}
+
+.code-line {
+  padding: 0 0.5rem;
+  border-radius: 0;
+  width: 100%;
+  display: inline-block;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.code-line:hover {
+  background-color: #333;
+}
+
+.code-line.selected-line {
+  background-color: rgba(212, 175, 55, 0.15);
+  border-left: 2px solid #d4af37;
+}
+
+/* Explanation controls */
+.explanation-controls {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  background-color: #2d2d2d;
+  border-top: 1px solid #444;
+}
+
+.explain-selection-btn,
+.cancel-selection-btn {
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.explain-selection-btn i,
+.cancel-selection-btn i {
+  margin-right: 0.3rem;
+}
+
+.explain-selection-btn {
+  background-color: #d4af37;
+  color: #1e1e1e;
+  border: 1px solid #d4af37;
+}
+
+.explain-selection-btn:hover {
+  background-color: #ffcc44;
+  border-color: #ffcc44;
+}
+
+.cancel-selection-btn {
+  background-color: transparent;
+  color: #ccc;
+  border: 1px solid #555;
+}
+
+.cancel-selection-btn:hover {
+  background-color: #444;
+  color: #fff;
+  border-color: #666;
+}
+
+/* Explanation container */
+.code-explanation {
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ddd;
+  color: #333;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: auto;
+}
+
+.code-explanation h3,
+.code-explanation h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.code-explanation p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.code-explanation code {
+  background-color: #eee;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 0.9em;
+  color: #d44950;
+}
+
+.code-explanation pre code {
+  display: block;
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  border-radius: 4px;
+}
+
+.code-explanation ul,
+.code-explanation ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.code-explanation li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.close-explanation {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.close-btn {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  color: #666;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.close-btn:hover {
+  background-color: #ddd;
+  color: #333;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  border-top-color: #d4af37;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.code-explanation p.error {
+  color: #d44950;
+  font-weight: 500;
+}
+
+/* API key modal */
+.api-key-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #333;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.modal-content p {
+  margin-bottom: 1.5rem;
+}
+
+#api-key-form input[type="text"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.submit-api-key,
+.cancel-api-key {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit-api-key {
+  background-color: #d4af37;
+  color: #fff;
+  border: none;
+  margin-left: 0.5rem;
+}
+
+.submit-api-key:hover {
+  background-color: #c09c30;
+}
+
+.cancel-api-key {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.cancel-api-key:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.save-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.save-option input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.key-info {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 1rem;
+  background-color: #f8f8f8;
+  padding: 0.8rem;
+  border-radius: 4px;
+  border-left: 3px solid #d4af37;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .code-snippet-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .code-language {
+    margin-bottom: 0.5rem;
+  }
+  
+  .code-copy-btn, 
+  .code-explain-btn {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  pre > code {
+    font-size: 13px;
+  }
+  
+  .line-numbers {
+    font-size: 13px;
+  }
+  
+  .modal-content {
+    margin: 20% auto;
+    width: 95%;
+    padding: 1rem;
+  }
+}

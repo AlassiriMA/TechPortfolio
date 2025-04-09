@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f8f8f8"/>
+  <rect x="50" y="50" width="700" height="300" rx="8" fill="#ffffff" stroke="#d4af37" stroke-width="2"/>
+  
+  <!-- Header -->
+  <rect x="70" y="70" width="660" height="60" rx="4" fill="#f5f5f5"/>
+  <circle cx="100" cy="100" r="15" fill="#d4af37"/>
+  <rect x="130" y="90" width="100" height="20" rx="3" fill="#e0e0e0"/>
+  <rect x="500" y="90" width="60" height="20" rx="3" fill="#e0e0e0"/>
+  <rect x="580" y="90" width="60" height="20" rx="3" fill="#e0e0e0"/>
+  <rect x="660" y="90" width="60" height="20" rx="3" fill="#e0e0e0"/>
+  
+  <!-- Hero Section -->
+  <rect x="70" y="150" width="660" height="180" rx="4" fill="#f9f9f9"/>
+  <rect x="100" y="180" width="300" height="40" rx="3" fill="#d4af37" opacity="0.8"/>
+  <rect x="100" y="240" width="400" height="20" rx="3" fill="#e0e0e0"/>
+  <rect x="100" y="280" width="150" height="30" rx="15" fill="#d4af37"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="600" cy="230" r="60" fill="#f5f5f5" stroke="#d4af37" stroke-width="2" stroke-dasharray="4"/>
+  <circle cx="600" cy="230" r="40" fill="#f8f8f8" stroke="#d4af37" stroke-width="2"/>
+  <circle cx="600" cy="230" r="20" fill="#d4af37" opacity="0.5"/>
+  
+  <!-- Text label -->
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#666">Portfolio Website Project</text>
+</svg>

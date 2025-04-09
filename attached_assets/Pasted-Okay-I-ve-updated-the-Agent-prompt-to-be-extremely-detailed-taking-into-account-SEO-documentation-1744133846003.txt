@@ -1,0 +1,104 @@
+Okay, I've updated the Agent prompt to be extremely detailed, taking into account SEO, documentation, and best practices for a static website on GitHub Pages.
+
+Agent Prompt:
+
+    "Create a single-page portfolio website for Mohammad A Alassiri (Mohammad A Alassiri) using React with TypeScript and Vite. The site should be optimized for search engines, be easy to understand for a freshman developer, and have excellent UI/UX. The final output should be a static website, ready to be hosted on GitHub Pages, without any server-side code or database.
+
+    1.  Technical Requirements:
+
+        Framework: Use React with TypeScript.
+
+        Build Tool: Use Vite.
+
+        Routing: Use React Router for in-page navigation (since it's a single-page application).
+
+        Styling: Use Tailwind CSS.
+
+        Static Output: Ensure the final build is a set of static HTML, CSS, and JavaScript files that can be directly deployed to GitHub Pages.  There should be no reliance on a backend server.
+
+        Accessibility: The site must be fully accessible, adhering to WCAG 2.1 standards. This includes:
+        * Semantic HTML
+        * Keyboard navigation
+        * Screen reader compatibility (ARIA attributes where necessary)
+        * Sufficient color contrast
+        * Image alt attributes
+
+        Performance: Optimize for fast loading times.
+        * Minify CSS and JavaScript
+        * Optimize images
+        * Use efficient React code
+
+        SEO Optimization:
+        * Use semantic HTML.
+        * Include a robots.txt file.
+        * Generate appropriate meta tags (description, keywords, author).
+        * Structure the content with proper heading tags (h1, h2, etc.).
+        * Use descriptive alt text for images.
+        * Generate a sitemap.xml
+
+        Documentation: Generate clear documentation within the code.  Use TypeScript JSDoc comments to explain the purpose of components, functions, and variables.  The code should be well-organized and easy to follow for a beginner.
+
+    2.  Design Requirements:
+
+        Theme: Use a clean, modern design with a white background and gold and silver accents.
+
+        Layout: Single-page layout with smooth scrolling between sections.
+
+        Hero Section:
+        * Make it prominent and bold.
+        * Display the name "Mohammad A Alassiri" as the main heading.
+        * Include a brief, engaging introduction (2-3 sentences) with typing animation.
+        * Use a professional photograph of Mohammad A Alassiri.
+        * Include a call to action button (e.g., "View My Work") with a smooth hover effect.
+
+        Logo: Use "ma@alassiri" as the logo.  Display it in the header.
+
+        Typing Animation: Apply typing animation to key text elements, such as the introduction in the hero section, and potentially in the project descriptions. Use a subtle and elegant typing effect.
+
+        Projects Section:
+        * Include content for 7 technology projects.
+        * For each project, display:
+        * Project Name (as a heading)
+        * Concise Description (1-2 paragraphs)
+        * Technologies Used (list with icons, if possible)
+        * Link to the live project (if available) or a link to the project's GitHub repository.
+        * Use clear and visually appealing cards to present each project.
+        * The projects section should be easy to scan and navigate.
+
+        Skills Section:
+        * Display a long list (100+) of technology icons representing Mohammad A Alassiri's skills.
+        * The icons should move horizontally and continuously in two rows, creating a dynamic and visually interesting effect.
+        * Ensure the icons are clearly visible and recognizable.
+        * Group the icons by category.
+
+        Contact Section:
+        * Include a contact form with fields for Name, Email, and Message.
+        * Since this is a static site, the form should, instead of submitting to a backend, use Javascript to open the user's default email client, with the recipient email address prefilled.
+        * Provide alternative contact methods, such as a direct email address and links to social media profiles.
+
+        CV Download:
+        * Include a prominent link to download Mohammad A Alassiri's CV as a PDF.
+        * The link should be clearly labeled (e.g., "Download CV").
+
+    3.  Component Structure:
+
+        Create reusable React components to keep the code organized.  Examples:
+        * Button: For consistent button styling.
+        * Typography: For consistent heading and text styles.
+        * Layout: For the overall page structure.
+        * Navigation: For the navigation menu.
+        * ProjectCard: For displaying individual projects.
+        * SkillList: For displaying the moving list of tech icons.
+        * ContactForm: For the contact form.
+
+    4.  Content:
+
+        All content should be professional, concise, and well-written.
+
+        Use clear and engaging language.
+
+        Proofread carefully to avoid errors.
+
+    5.  Target Audience:
+
+        The portfolio should be designed to appeal to potential employers, recruiters, and other professionals in the technology industry.
